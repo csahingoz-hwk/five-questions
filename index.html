@@ -487,6 +487,80 @@ footer .credit{display:block;margin-top:8px;font-size:10px;letter-spacing:.08em;
  .acq{--chipA:calc(1 - min(1,max(0,(var(--p,0) - .548) * 50)))}.chips{opacity:var(--chipA)}
 }
 
+/* ===== v3 2026-11-18: Act 5 Guide Chart sequence ===== */
+#measure .stage{isolation:isolate}
+.hay-bg{position:absolute;inset:0;z-index:-1;pointer-events:none}
+.hay-bg img{width:100%;height:100%;object-fit:cover;opacity:.34;filter:brightness(.62) saturate(.85)}
+#measure .stage::before{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;background:linear-gradient(90deg,color-mix(in srgb,var(--bg) 88%,transparent) 0%,color-mix(in srgb,var(--bg) 55%,transparent) 45%,color-mix(in srgb,var(--bg) 70%,transparent) 100%),linear-gradient(180deg,var(--bg) 0%,transparent 14%,transparent 86%,var(--bg) 100%)}
+:root[data-theme="light"] .hay-bg img{opacity:.22;filter:brightness(1.1) saturate(.6)}
+.visual.hay{background:rgba(6,18,15,.62);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);border-color:rgba(79,227,181,.22);box-shadow:0 0 0 1px rgba(79,227,181,.06) inset,0 30px 80px rgba(0,0,0,.35);color:#e8f0ec;font-family:var(--sans)}
+:root[data-theme="light"] .visual.hay{background:rgba(6,18,15,.86)}
+.hay-paper{position:absolute;inset:0;pointer-events:none;opacity:.10;mix-blend-mode:screen;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3'/%3E%3CfeColorMatrix values='0 0 0 0 .93 0 0 0 0 .86 0 0 0 0 .68 0 0 0 .55 0'/%3E%3C/filter%3E%3Crect width='240' height='240' filter='url(%23n)'/%3E%3C/svg%3E"),radial-gradient(120% 90% at 30% 20%,rgba(240,196,96,.35),transparent 60%)}
+.hay-steps{position:absolute;left:14px;right:14px;top:12px;margin:0;padding:0;list-style:none;display:flex;gap:6px;z-index:3;flex-wrap:wrap}
+.hay-steps li{font-size:10.5px;letter-spacing:.04em;padding:4px 8px;border-radius:99px;border:1px solid rgba(255,255,255,.12);color:rgba(232,240,236,.45);transition:all .4s}
+.hay-steps li.done{color:rgba(232,240,236,.75);border-color:rgba(79,227,181,.3)}
+.hay-steps li.on{color:#06120f;background:#4fe3b5;border-color:#4fe3b5;box-shadow:0 0 14px rgba(79,227,181,.45)}
+.hay-card-wrap{position:absolute;left:50%;top:54%;width:min(78%,430px);transform:translate(-50%,-50%);perspective:1200px;z-index:2;transition:transform .7s var(--ease),opacity .6s,top .7s var(--ease)}
+.hay-card{position:relative;width:100%;aspect-ratio:4/3.1;transform-style:preserve-3d;transform:rotateY(var(--flip,0deg))}
+.hay-card .face{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;border-radius:14px;padding:18px 20px;display:flex;flex-direction:column;gap:6px;
+ background:linear-gradient(160deg,rgba(242,232,206,.13),rgba(242,232,206,.05));border:1px solid rgba(240,196,96,.35);box-shadow:0 0 0 1px rgba(0,0,0,.2) inset,0 20px 50px rgba(0,0,0,.4)}
+.hay-card .face.back{transform:rotateY(180deg);border-color:rgba(79,227,181,.5);background:linear-gradient(160deg,rgba(79,227,181,.14),rgba(79,227,181,.04))}
+.hay-card small{font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;font-weight:700;color:#f0c460}
+.hay-card .back small{color:#4fe3b5}
+.hay-card b{font-family:var(--serif);font-size:clamp(17px,1.7vw,23px);font-weight:600;color:#fff}
+.hay-card span{font-size:13px;color:#b7c7c0}
+.watch{margin-top:auto;display:flex;align-items:center;gap:16px}
+.visual .watch svg{position:static;inset:auto;width:clamp(70px,9vw,110px);height:auto}
+.w-rim{fill:rgba(0,0,0,.3);stroke:#f0c460;stroke-width:3}.w-crown{fill:#f0c460}.w-ticks line{stroke:rgba(240,220,170,.7);stroke-width:1.2}
+.w-hand{stroke:#4fe3b5;stroke-width:3;stroke-linecap:round;transform-origin:60px 64px}.w-pin{fill:#4fe3b5}
+.watch em{font-family:var(--mono);font-style:normal;font-size:clamp(20px,2.4vw,32px);color:#f0c460;letter-spacing:.02em}
+.bars{margin-top:auto;display:grid;gap:9px}
+.bar{display:grid;grid-template-columns:118px 1fr 38px;align-items:center;gap:10px;font-size:12.5px}
+.bar i{font-style:normal;color:#e8f0ec}.bar em{font-style:normal;font-family:var(--mono);text-align:right;color:var(--c)}
+.bar s{display:block;height:10px;border-radius:99px;background:rgba(255,255,255,.07);overflow:hidden;text-decoration:none}
+.bar u{display:block;height:100%;width:0;border-radius:99px;background:var(--c);box-shadow:0 0 14px var(--c)}
+.total{font-size:13px;color:#b7c7c0;text-align:right;margin-top:4px}.total strong{font-family:var(--serif);font-size:26px;color:#4fe3b5;margin:0 4px}
+.hay-chart{position:absolute;left:16px;right:16px;top:48px;bottom:16px;display:grid;grid-template-rows:auto 1fr auto;gap:6px;opacity:0;pointer-events:none;z-index:1;transition:opacity .6s}
+.hc-head{display:flex;justify-content:space-between;align-items:baseline;gap:10px;padding:0 4px 0 22px}
+.hc-head b{font-family:var(--serif);font-size:16px;color:#f0e6c8;letter-spacing:.02em}.hc-head span{font-size:11.5px;color:#8ee4c5}
+.hc-grid{position:relative;margin-left:22px;display:grid;grid-template-columns:repeat(8,1fr);grid-template-rows:repeat(6,1fr);border:1px solid rgba(240,220,170,.32);border-radius:6px;overflow:visible;background:rgba(240,220,170,.03)}
+.hc-grid .cell{border-right:1px solid rgba(240,220,170,.12);border-bottom:1px solid rgba(240,220,170,.12)}
+.hc-ax{font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:rgba(240,230,200,.6)}
+.hc-x{position:absolute;right:6px;bottom:22px}
+.hc-y{position:absolute;left:2px;bottom:44px;writing-mode:vertical-rl;transform:rotate(180deg)}
+#hay[data-step="4"] .hc-y,#hay[data-step="4"] .hc-x{opacity:0}
+.hay-note{margin:0;font-size:11px;color:#f0c460;text-align:right;letter-spacing:.02em}
+.hc-bands{position:absolute;inset:0;display:grid;grid-template-rows:repeat(6,1fr);pointer-events:none}
+.band{display:flex;justify-content:flex-end;align-items:center;gap:8px;padding:0 8px;border-bottom:1px dashed rgba(79,227,181,.25);background:linear-gradient(90deg,transparent,rgba(79,227,181,.05));opacity:0;font-size:11px}
+.band b{color:#8ee4c5;font-weight:700}.band span{font-family:var(--mono);color:#e8f0ec}
+.band.me{background:linear-gradient(90deg,rgba(79,227,181,.04),rgba(79,227,181,.2));box-shadow:0 0 0 1px rgba(79,227,181,.5) inset}
+.dot{position:absolute;transform:translate(-50%,-50%);display:flex;align-items:center;gap:6px;opacity:0;white-space:nowrap;z-index:2}
+.dot i{width:12px;height:12px;border-radius:50%;background:#00adbb;box-shadow:0 0 0 3px rgba(0,173,187,.25),0 0 14px rgba(0,173,187,.6)}
+.dot.me i{background:#4fe3b5;box-shadow:0 0 0 4px rgba(79,227,181,.3),0 0 18px rgba(79,227,181,.8)}
+.dot span{font-size:11px;color:#e8f0ec;background:rgba(5,12,10,.7);padding:2px 6px;border-radius:5px}
+.dot:nth-child(n+54) span{transform:translateX(calc(-100% - 24px))}
+/* step states */
+#hay[data-step="3"] .hay-card-wrap,#hay[data-step="4"] .hay-card-wrap{opacity:0;transform:translate(-50%,-60%) scale(.86)}
+#hay[data-step="3"] .hay-chart,#hay[data-step="4"] .hay-chart{opacity:1}
+@media(max-width:899px){
+ #measure .stage{grid-template-rows:auto minmax(0,1fr)}
+ #measure .copy p.lead + p.lead{display:none}
+ #measure .copy h2{font-size:28px}
+ .visual.hay{min-height:330px}
+ .hay-steps li{font-size:9.5px;padding:3px 6px}
+ .hay-steps li:not(.on){max-width:22px;overflow:hidden;white-space:nowrap;text-overflow:clip;color:transparent}
+ .hay-card-wrap{width:92%;top:56%}
+ .hay-card{aspect-ratio:auto;height:min(250px,calc(100% - 10px))}
+ .hay-card-wrap{height:72%}.hay-card{height:100%}
+ .hay-card .face{padding:12px 14px;gap:4px}
+ .hay-card span{font-size:12px}
+ .bar{grid-template-columns:96px 1fr 32px;font-size:11.5px;gap:8px}
+ .hay-chart{top:40px;left:10px;right:10px;bottom:10px}
+ .dot span{font-size:9.5px;padding:1px 4px}.band{font-size:9.5px;padding:0 5px;gap:5px}
+ .hc-head b{font-size:13px}.hc-head span{font-size:10px}
+}
+@media(prefers-reduced-motion:reduce){.hay-card-wrap,.hay-chart,.hay-steps li{transition:none}}
+
 </style>
 </head>
 <body>
@@ -584,8 +658,9 @@ footer .credit{display:block;margin-top:8px;font-size:10px;letter-spacing:.08em;
 </section>
 
 <!-- ACT 5 · MEASURE · pinned scrub -->
-<section class="act pin" id="measure" data-act="measure" style="--span:280">
+<section class="act pin" id="measure" data-act="measure" style="--span:340">
  <div class="stage">
+  <!--HAY_BG-->
   <div class="copy" style="--tc:var(--t2)">
    <div class="kick">1911 to 1943 · Philadelphia</div>
    <h2>A job becomes a <em>coordinate</em>.</h2>
@@ -593,14 +668,32 @@ footer .credit{display:block;margin-top:8px;font-size:10px;letter-spacing:.08em;
    <p class="lead">By the early 1950s its Guide Charts scored any role on three factors.</p>
    <div class="q"><small>Questions one and two get a method</small><b>Job evaluation</b><span>Still the backbone of grading and pay benchmarking in Total Rewards and Organization Strategy.</span></div>
   </div>
-  <div class="visual">
-   <svg viewBox="0 0 800 520" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
-    <g id="grid"></g>
-    <path class="ax" id="axY" d="M120 440 V70" pathLength="1"/><path class="ax" id="axX" d="M120 440 H720" pathLength="1"/>
-    <text class="f" x="128" y="62">Accountability</text><text class="f" x="600" y="474">Know-how</text><text class="f" x="430" y="250" id="lblPS">Problem solving</text>
-    <circle id="jobring" r="18" cx="0" cy="0"/><circle id="jobdot" r="9" cx="0" cy="0"/>
-    <text id="jobtxt" x="0" y="0">one role, one position</text>
-   </svg>
+  <div class="visual hay" id="hay" aria-label="From timing the task to grading the job: an illustrative Guide Chart">
+   <div class="hay-paper" aria-hidden="true"></div>
+   <ol class="hay-steps" aria-hidden="true"><li>1911 · Time the task</li><li>1943 · Weigh the job</li><li>Three factors</li><li>Points</li><li>Grades &amp; pay</li></ol>
+   <div class="hay-card-wrap"><div class="hay-card" id="hayCard">
+    <div class="face front">
+     <small>Time study · 1911</small><b>Task card · Worker No. 47</b>
+     <span>Shovel, carry, load. Every motion timed to the second.</span>
+     <div class="watch"><svg viewBox="0 0 120 120" aria-hidden="true"><circle cx="60" cy="64" r="44" class="w-rim"/><rect x="53" y="8" width="14" height="10" rx="3" class="w-crown"/><g class="w-ticks"></g><line id="watchHand" x1="60" y1="64" x2="60" y2="28" class="w-hand"/><circle cx="60" cy="64" r="4" class="w-pin"/></svg><em id="watchRead">00:00.0</em></div>
+    </div>
+    <div class="face back">
+     <small>Job evaluation · 1943</small><b>The job: Plant supervisor</b>
+     <span>Not the person in it. What the role demands.</span>
+     <div class="bars">
+      <div class="bar" style="--c:var(--t1)"><i>Know-how</i><s><u id="bKH"></u></s><em id="nKH">0</em></div>
+      <div class="bar" style="--c:var(--t2)"><i>Problem solving</i><s><u id="bPS"></u></s><em id="nPS">0</em></div>
+      <div class="bar" style="--c:var(--t3)"><i>Accountability</i><s><u id="bAC"></u></s><em id="nAC">0</em></div>
+     </div>
+     <div class="total">Total <strong id="nTot">0</strong> points</div>
+    </div>
+   </div></div>
+   <div class="hay-chart" id="hayChart">
+    <div class="hc-head"><b>Guide Chart</b><span id="hcMode">Know-how × Accountability</span></div>
+    <div class="hc-grid" id="hcGrid"><div class="hc-bands" id="hcBands"></div></div>
+    <div class="hc-ax hc-x">Know-how →</div><div class="hc-ax hc-y">Accountability →</div>
+    <p class="hay-note">Illustrative scores, not real Hay points</p>
+   </div>
   </div>
  </div>
 </section>
@@ -811,14 +904,46 @@ const R={};
 
 function layoutPan(){}
 
-// Act 5: grid draws, role lands on a coordinate
-(function(){const NS='http://www.w3.org/2000/svg',g=$('#grid');const L=[];
- for(let i=1;i<=6;i++){[['M'+(120+i*100)+' 440 V70'],['M120 '+(440-i*61.6)+' H720']].forEach(([d],k)=>{if(k===0&&i>6)return;const e=document.createElementNS(NS,'path');e.setAttribute('d',d);e.setAttribute('class','gl');e.setAttribute('pathLength',1);e.style.strokeDasharray=1;g.appendChild(e);L.push(e)})}
- const ax=[$('#axX'),$('#axY')];ax.forEach(e=>e.style.strokeDasharray=1);
- const dot=$('#jobdot'),ring=$('#jobring'),txt=$('#jobtxt'),ps=$('#lblPS');
- R.measure=p=>{ax.forEach(e=>e.style.strokeDashoffset=1-sstep(0,.2,p));L.forEach((e,i)=>e.style.strokeDashoffset=1-sstep(.12+i*.03,.38+i*.03,p));
-  const k=sstep(.5,.85,p),x=lerp(160,520,k),y=lerp(410,193,k);[dot,ring].forEach(e=>{e.setAttribute('cx',x);e.setAttribute('cy',y);e.style.opacity=sstep(.45,.52,p)});
-  ring.setAttribute('r',18+Math.sin(p*40)*3);txt.setAttribute('x',x+26);txt.setAttribute('y',y+5);txt.style.opacity=sstep(.82,.9,p);ps.style.opacity=sstep(.3,.45,p)}})();
+// Act 5: from the stopwatch to the Guide Chart (illustrative scores)
+(function(){
+ const hay=$('#hay'),card=$('#hayCard'),hand=$('#watchHand'),read=$('#watchRead'),grid=$('#hcGrid'),bandsEl=$('#hcBands'),steps=$$('.hay-steps li',hay),mode=$('#hcMode');
+ const NS='http://www.w3.org/2000/svg',tk=$('.w-ticks',hay);
+ for(let i=0;i<60;i++){const l=document.createElementNS(NS,'line'),a=i*6*Math.PI/180,r1=i%5?38:34;l.setAttribute('x1',60+Math.sin(a)*r1);l.setAttribute('y1',64-Math.cos(a)*r1);l.setAttribute('x2',60+Math.sin(a)*41);l.setAttribute('y2',64-Math.cos(a)*41);tk.appendChild(l)}
+ // illustrative roles: know-how, problem solving, accountability
+ const ROLES=[['Clerk',100,29,38],['Machinist',152,43,57],['Plant supervisor',230,76,87],['Engineer',304,115,100],['Plant manager',400,152,230],['Director',528,230,350]];
+ const BANDS=[[0,200,'Grade 1','£22–28k'],[200,300,'Grade 2','£28–36k'],[300,450,'Grade 3','£36–48k'],[450,650,'Grade 4','£48–65k'],[650,900,'Grade 5','£65–90k'],[900,1e9,'Grade 6','£90–125k']];
+ for(let c=0;c<8;c++)for(let r=0;r<6;r++){const d=document.createElement('i');d.className='cell';grid.appendChild(d)}
+ BANDS.slice().reverse().forEach(([,,g,pay])=>{const b=document.createElement('div');b.className='band';b.innerHTML='<b>'+g+'</b><span>'+pay+'</span>';bandsEl.appendChild(b)});
+ const bandEls=$$('.band',bandsEl).reverse();
+ const dots=ROLES.map(([n,kh,ps,ac],i)=>{const tot=kh+ps+ac,bi=BANDS.findIndex(([a,b])=>tot>=a&&tot<b);
+  const d=document.createElement('div');d.className='dot'+(n==='Plant supervisor'?' me':'');d.innerHTML='<i></i><span>'+n+' · '+tot+'</span>';grid.appendChild(d);
+  return {d,i,x:8+kh/600*84,y:92-ac/400*84,by:100-(bi+.5)*100/6,bi}});
+ const F={kh:230,ps:76,ac:87};
+ const B=[['bKH','nKH',F.kh],['bPS','nPS',F.ps],['bAC','nAC',F.ac]].map(([b,n,v])=>({b:$('#'+b),n:$('#'+n),v}));
+ const nTot=$('#nTot');let lastStep=-1;
+ // step windows on scroll progress p
+ const W=[0,.18,.34,.56,.78];
+ function render(p){
+  const st=p>=W[4]?4:p>=W[3]?3:p>=W[2]?2:p>=W[1]?1:0;
+  if(st!==lastStep){lastStep=st;hay.dataset.step=st;steps.forEach((e,i)=>{e.classList.toggle('on',i===st);e.classList.toggle('done',i<st)})}
+  // 1 stopwatch
+  const w=sstep(.02,.2,p),sec=w*47.3;hand.style.transform='rotate('+(sec*6*6)+'deg)';read.textContent='00:'+String(Math.floor(sec)).padStart(2,'0')+'.'+Math.floor(sec*10%10);
+  // 2 flip
+  card.style.setProperty('--flip',(sstep(.19,.31,p)*180).toFixed(1)+'deg');
+  // 3 bars one by one
+  let tot=0;B.forEach((o,i)=>{const k=sstep(.35+i*.065,.41+i*.065,p),v=Math.round(o.v*k);tot+=v;o.b.style.width=(o.v/300*100*k).toFixed(1)+'%';o.n.textContent=v});
+  nTot.textContent=tot;
+  // 4 dots drop on the chart, 5 snap to grade bands
+  const snap=sstep(.79,.9,p);
+  dots.forEach(o=>{const k=sstep(.57+o.i*.022,.63+o.i*.022,p);o.d.style.opacity=k.toFixed(3);
+   o.d.style.left=lerp(o.x,4+o.x*.7,snap).toFixed(2)+'%';o.d.style.top=lerp(o.y-14*(1-k),lerp(o.y,o.by,snap),k)+'%'});
+  bandEls.forEach((b,i)=>b.style.opacity=(sstep(.79+i*.02,.86+i*.02,p)).toFixed(3));
+  const lit=dots.find(o=>o.d.classList.contains('me'));bandEls.forEach((b,i)=>b.classList.toggle('me',snap>.9&&i===lit.bi));
+  mode.textContent=p>=W[4]?'Total points → grade → pay range':'Know-how × Accountability';
+ }
+ R.measure=p=>render(reduced?1:p);
+ render(reduced?1:0);
+})();
 
 /* ---- frame loop ---- */
 const TH=$$('.th'),LIT=[['organise',.6],['reward',.6],['select',.5],['grow',.85],['search',.5]];
