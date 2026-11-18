@@ -804,7 +804,7 @@ body.spec .vo-cap{display:none}
  <div class="where" id="where">Cold open</div>
 </div>
 
-<audio id="vo" preload="none" src="assets/fq_mix.mp3"><track id="voTrack" kind="captions" srclang="en" label="English" src="assets/fq_captions.vtt"></audio>
+<audio id="vo" preload="none" src="assets/fq_mix.mp3"></audio>
 <div class="vo-cap" id="voCap" aria-live="off"></div>
 <!-- MOTION SPEC view: built from the data below -->
 <section id="spec" aria-label="Motion spec"></section>
@@ -989,7 +989,8 @@ function voUI(){VO.muted=voMuted;SND.classList.toggle('muted',voMuted);SND.setAt
 VO.volume=.9;voUI();
 SND.addEventListener('click',()=>{voMuted=!voMuted;voSet('kf5q.muted',voMuted?'1':'0');voUI()});
 CCB.addEventListener('click',()=>{voCC=!voCC;voSet('kf5q.cc',voCC?'1':'0');voUI()});
-try{const tr=VO.textTracks&&VO.textTracks[0];if(tr){tr.mode='hidden';voCues=tr}}catch(e){}
+/* captions inline (same text as assets/fq_captions.vtt) so sandboxed frames need no extra fetch */
+voCues=[[0.8,4.92,"Work is the oldest technology we have. The tools keep changing."],[4.92,9.62,"The five questions behind them never have. How do we organise?"],[9.62,16.24,"What is the work worth? Who is ready? How do people grow? And where do we find them?"],[25.8,31.94,"Göbekli Tepe, Anatolia. Around 9500 BCE. Before the farm, there was the team."],[31.94,37.5,"Hunter-gatherers raised rings of stone pillars weighing several tonnes."],[37.5,39.01,"Nobody lifts one alone."],[39.01,44.07,"So somebody had to decide who cuts, who hauls, and who feeds the crew."],[44.07,46.78,"Question one: how do we organise?"],[55.8,57.37,"Uruk, Mesopotamia. Around 3300 BCE."],[57.37,64.12,"Among the oldest writing we have is a clay record of rations owed to workers."],[64.12,69.05,"The first payslip was paid in beer. Pay was written down before poetry was."],[69.05,75.98,"And when the rations arrived late at Deir el-Medina, the tomb builders put down their tools."],[75.98,81.2,"The first recorded strike. Question two: what is the work worth?"],[85.8,88.28,"Imperial China. Merit, not birth."],[88.28,96.85,"Public office goes to whoever passes a written examination: long rows of single cells, one candidate in each."],[96.85,101.5,"The system runs for about thirteen hundred years, until 1905."],[101.5,103.99,"Question three: who is ready?"],[115.8,120.17,"Medieval Europe, and the craft guilds. Nobody is born ready."],[120.17,122.86,"The apprentice spends years beside a master."],[122.86,125.31,"The journeyman takes the craft on the road."],[125.31,131.35,"The master is judged by peers on one piece of work: the original meaning of a masterpiece."],[131.35,134.04,"Question four: how do people grow?"],[145.8,148.91,"Philadelphia. A job becomes a coordinate."],[148.91,152.9,"In 1911, Frederick Taylor put a stopwatch on the task."],[152.9,159.16,"In 1943, Edward Hay founded a firm on a harder idea: weigh the job, not the person."],[159.16,169.1,"By the early 1950s, its Guide Charts scored any role on three factors: know-how, problem solving and accountability."],[169.1,172.62,"Points become a grade, and a grade becomes a pay range."],[172.62,178.07,"Job evaluation is still the backbone of grading and pay benchmarking."],[185.8,190.4,"The knowledge economy. When the asset is a mind, you go and find it."],[190.4,195.44,"In 1959, Peter Drucker describes a workforce paid to think."],[195.44,201.14,"In 1969, Lester Korn and Richard Ferry open an office in Los Angeles."],[201.14,204.03,"The door already says International."],[204.03,210.29,"In 1973, Harvard's David McClelland argues for testing what predicts success in the job."],[210.29,213.1,"Question five: where do we find them?"],[220.8,226.45,"Five answers. One firm. For most of history, each question had its own specialists."],[226.45,231.84,"Then the threads met. Lominger brought leadership competencies."],[231.84,235.6,"PDI Ninth House brought assessment and coaching."],[235.6,239.63,"Hay Group, in 2015, brought rewards and organisation."],[239.63,244.52,"And in 2026, AMS brought talent acquisition and outsourced recruitment at scale."],[244.52,247.63,"All five threads, moving at once."],[265.8,270.22,"2026. The tools changed again. The questions did not."],[270.22,275.41,"AI is rewriting how work gets done, faster than any shift before it."],[275.41,278.91,"The answers still start in the same five places."],[278.91,287.46,"Korn Ferry Talent Suite, launched in January 2026, brings five decades of the firm's data and method onto one platform."]];
 function voStart(t){try{if(VO.preload!=='auto'){VO.preload='auto'}const go=()=>{try{VO.currentTime=t}catch(e){}const p=VO.play();p&&p.catch(()=>{})};if(VO.readyState>=1)go();else{VO.addEventListener('loadedmetadata',go,{once:true});VO.load()}}catch(e){}}
 function voStop(){try{VO.pause()}catch(e){}CAPEL.classList.remove('on')}
 function voSync(t){
@@ -997,8 +998,8 @@ function voSync(t){
  if(Math.abs(VO.currentTime-t)>.3){try{VO.currentTime=t}catch(e){}}
 }
 function voCaption(t){
- if(!voCC||!playing||!voCues||!voCues.cues){CAPEL.classList.remove('on');return}
- let txt='';const cs=voCues.cues;for(let i=0;i<cs.length;i++){if(cs[i].startTime<=t&&t<cs[i].endTime){txt=cs[i].text;break}}
+ if(!voCC||!playing||!voCues){CAPEL.classList.remove('on');return}
+ let txt='';for(let i=0;i<voCues.length;i++){const c=voCues[i];if(c[0]<=t&&t<c[1]){txt=c[2];break}}
  if(txt){if(CAPEL.textContent!==txt)CAPEL.textContent=txt;CAPEL.classList.add('on')}else CAPEL.classList.remove('on')
 }
 /* ---- presenter autoplay ---- */
