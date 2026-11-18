@@ -561,6 +561,20 @@ footer .credit{display:block;margin-top:8px;font-size:10px;letter-spacing:.08em;
 }
 @media(prefers-reduced-motion:reduce){.hay-card-wrap,.hay-chart,.hay-steps li{transition:none}}
 
+
+/* narration: sound + captions controls (added for the Play cut) */
+.loom .snd{flex:none;display:inline-flex;align-items:center;gap:6px;height:30px;padding:0 11px;border-radius:99px;border:1px solid var(--line2);background:transparent;color:var(--ink);font:600 12px/1 inherit;font-family:inherit;cursor:pointer}
+.loom .snd svg{width:15px;height:15px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.loom .snd:hover{border-color:var(--emer)}
+.loom .snd:focus-visible{outline:2px solid var(--emer);outline-offset:2px}
+.loom .snd[aria-pressed="true"]{border-color:var(--emer);color:var(--emer2)}
+.loom .snd .x{display:none}.loom .snd.muted .x{display:inline}.loom .snd.muted .w{display:none}
+.loom .snd.cc{padding:0 9px;font-size:11px;letter-spacing:.06em}
+.vo-cap{position:fixed;left:50%;bottom:calc(var(--bar) + 18px);transform:translateX(-50%);z-index:49;max-width:min(760px,92vw);padding:9px 16px;border-radius:10px;background:rgba(6,18,15,.86);color:#fff;font-size:15px;line-height:1.45;text-align:center;pointer-events:none;opacity:0;transition:opacity .25s}
+.vo-cap.on{opacity:1}
+:root[data-theme="light"] .vo-cap{background:rgba(255,255,255,.95);color:#06120f;box-shadow:0 2px 12px rgba(6,18,15,.18)}
+body.spec .vo-cap{display:none}
+@media (max-width:720px){.loom .snd .lbl{display:none}.loom .snd{padding:0 8px}.vo-cap{font-size:13px;bottom:calc(var(--bar) + 10px)}}
 </style>
 </head>
 <body>
@@ -782,12 +796,16 @@ footer .credit{display:block;margin-top:8px;font-size:10px;letter-spacing:.08em;
 <div class="loom" id="loom"><div class="prog"></div>
  <button class="play" id="play" aria-pressed="false">Play 5:00</button>
  <div class="time" id="time">0:00 / 5:00</div>
+ <button class="snd" id="snd" type="button" aria-pressed="false" aria-label="Mute narration" title="Narration plays with Play. Click to mute."><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9H4z"/><path class="w" d="M16 9a4 4 0 0 1 0 6M18.5 6.5a8 8 0 0 1 0 11"/><path class="x" d="M17 9l5 6M22 9l-5 6"/></svg><span class="lbl">Sound on</span></button>
+ <button class="snd cc" id="cc" type="button" aria-pressed="true" aria-label="Captions" title="Show captions while playing">CC</button>
  <div class="threads" aria-label="Questions answered so far">
   <div class="th" style="--c:var(--t1)">Organise</div><div class="th" style="--c:var(--t2)">Reward</div><div class="th" style="--c:var(--t3)">Assess</div><div class="th" style="--c:var(--t4)">Grow</div><div class="th" style="--c:var(--t5)">Find</div>
  </div>
  <div class="where" id="where">Cold open</div>
 </div>
 
+<audio id="vo" preload="none" src="assets/fq_mix.mp3"><track id="voTrack" kind="captions" srclang="en" label="English" src="assets/fq_captions.vtt"></audio>
+<div class="vo-cap" id="voCap" aria-live="off"></div>
 <!-- MOTION SPEC view: built from the data below -->
 <section id="spec" aria-label="Motion spec"></section>
 
@@ -948,7 +966,7 @@ function layoutPan(){}
 /* ---- frame loop ---- */
 const TH=$$('.th'),LIT=[['organise',.6],['reward',.6],['select',.5],['grow',.85],['search',.5]];
 function frame(now){
- if(playing){const t=Math.max(0,(now-playT0)/1000);if(t>=TOTAL){stopPlay()}else scrollTo(0,timeToY(t))}
+ if(playing){const t=Math.max(0,(now-playT0)/1000);if(t>=TOTAL){stopPlay()}else{scrollTo(0,timeToY(t));voSync(t);voCaption(t)}}
  acts.forEach(a=>{const tg=target(a);a.p=smooth?a.p+(tg-a.p)*.14:tg;if(Math.abs(tg-a.p)<.0004)a.p=tg;
   if(a.p!==a.last){a.last=a.p;a.el.style.setProperty('--p',a.p.toFixed(4));R[a.d.id]&&R[a.d.id](a.p)}});
  const el=yToTime(scrollY),cur=acts.slice().reverse().find(a=>a.t0<=el+.001)||acts[0];
@@ -961,9 +979,31 @@ function span(a,i){const y0=i?a.top:0,nx=acts[i+1];return[y0,Math.min(nx?nx.top:
 function yToTime(y){for(let i=acts.length-1;i>=0;i--){const a=acts[i],[y0,y1]=span(a,i);if(y>=y0||i===0)return a.t0+a.d.dur*clamp((y-y0)/Math.max(1,y1-y0))}return 0}
 function timeToY(t){t=clamp(t,0,TOTAL);const i=clamp(acts.length-1-acts.slice().reverse().findIndex(a=>a.t0<=t),0,acts.length-1),a=acts[i],[y0,y1]=span(a,i);return lerp(y0,y1,clamp((t-a.t0)/a.d.dur))}
 
+
+/* ---- narration audio: follows Play only (free scroll stays silent) ---- */
+const VO=$('#vo'),SND=$('#snd'),CCB=$('#cc'),CAPEL=$('#voCap');
+const voGet=k=>{try{return window.KF5Q_STORE?window.KF5Q_STORE.get(k):localStorage.getItem(k)}catch(e){return null}};
+const voSet=(k,v)=>{try{window.KF5Q_STORE?window.KF5Q_STORE.set(k,v):localStorage.setItem(k,v)}catch(e){}};
+let voMuted=voGet('kf5q.muted')==='1',voCC=voGet('kf5q.cc')!=='0',voCues=null;
+function voUI(){VO.muted=voMuted;SND.classList.toggle('muted',voMuted);SND.setAttribute('aria-pressed',String(voMuted));SND.setAttribute('aria-label',voMuted?'Unmute narration':'Mute narration');SND.querySelector('.lbl').textContent=voMuted?'Muted':'Sound on';CCB.setAttribute('aria-pressed',String(voCC));if(!voCC)CAPEL.classList.remove('on')}
+VO.volume=.9;voUI();
+SND.addEventListener('click',()=>{voMuted=!voMuted;voSet('kf5q.muted',voMuted?'1':'0');voUI()});
+CCB.addEventListener('click',()=>{voCC=!voCC;voSet('kf5q.cc',voCC?'1':'0');voUI()});
+try{const tr=VO.textTracks&&VO.textTracks[0];if(tr){tr.mode='hidden';voCues=tr}}catch(e){}
+function voStart(t){try{if(VO.preload!=='auto'){VO.preload='auto'}const go=()=>{try{VO.currentTime=t}catch(e){}const p=VO.play();p&&p.catch(()=>{})};if(VO.readyState>=1)go();else{VO.addEventListener('loadedmetadata',go,{once:true});VO.load()}}catch(e){}}
+function voStop(){try{VO.pause()}catch(e){}CAPEL.classList.remove('on')}
+function voSync(t){
+ if(!playing||VO.paused||VO.readyState<2)return;
+ if(Math.abs(VO.currentTime-t)>.3){try{VO.currentTime=t}catch(e){}}
+}
+function voCaption(t){
+ if(!voCC||!playing||!voCues||!voCues.cues){CAPEL.classList.remove('on');return}
+ let txt='';const cs=voCues.cues;for(let i=0;i<cs.length;i++){if(cs[i].startTime<=t&&t<cs[i].endTime){txt=cs[i].text;break}}
+ if(txt){if(CAPEL.textContent!==txt)CAPEL.textContent=txt;CAPEL.classList.add('on')}else CAPEL.classList.remove('on')
+}
 /* ---- presenter autoplay ---- */
-function startPlay(){mediaVideos.forEach(v=>{const l=videoLoaders.get(v);l&&l()});playing=true;playT0=performance.now()-(yToTime(scrollY)>=TOTAL-1?0:yToTime(scrollY))*1000;$('#play').textContent='Stop';$('#play').setAttribute('aria-pressed','true')}
-function stopPlay(){playing=false;$('#play').textContent='Play 5:00';$('#play').setAttribute('aria-pressed','false')}
+function startPlay(){mediaVideos.forEach(v=>{const l=videoLoaders.get(v);l&&l()});playing=true;const t0=yToTime(scrollY)>=TOTAL-1?0:yToTime(scrollY);playT0=performance.now()-t0*1000;voStart(t0);$('#play').textContent='Stop';$('#play').setAttribute('aria-pressed','true')}
+function stopPlay(){playing=false;voStop();$('#play').textContent='Play 5:00';$('#play').setAttribute('aria-pressed','false')}
 $('#play').addEventListener('click',()=>playing?stopPlay():startPlay());
 const fromLoom=e=>e.target&&e.target.closest&&e.target.closest('#loom');
 ['wheel','touchstart'].forEach(ev=>addEventListener(ev,e=>{if(playing&&!fromLoom(e))stopPlay()},{passive:true}));
