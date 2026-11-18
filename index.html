@@ -1,0 +1,1227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>The Five Questions of Work · Korn Ferry</title>
+<script>try{var t=localStorage.getItem('kf5q.theme');if(t)document.documentElement.setAttribute('data-theme',t)}catch(e){}document.documentElement.classList.add('js')</script>
+<link rel="icon" href="data:,">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400;1,8..60,600&display=swap" rel="stylesheet">
+<style>
+:root{
+--bg:#06120f;--bg2:#081713;--panel:rgba(255,255,255,.035);--panel2:rgba(255,255,255,.055);--solid:#0b1c17;
+--line:rgba(255,255,255,.09);--line2:rgba(255,255,255,.16);
+--ink:#e8f0ec;--ink2:#b7c7c0;--muted:#8a9e96;--ink0:#fff;
+--forest:#00634f;--dark-forest:#053328;--emer:#00b388;--emer2:#4fe3b5;--emers:#8ee4c5;
+--gBg:rgba(34,197,139,.16);--gInk:#5fe0b0;--aBg:rgba(224,168,33,.16);--aInk:#f0c460;
+--hover:rgba(0,179,136,.07);--focus:rgba(0,179,136,.28);--code:#04100d;
+--t1:#05c690;--t2:#00adbb;--t3:#3ba7d6;--t4:#c97ab6;--t5:#77bc1f;
+--sky1:#0a1f1a;--sky2:#123c31;--sun:#f0c460;--ridge1:#0d2a22;--ridge2:#081b16;--fg:#030a08;
+--sans:'Inter',-apple-system,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;
+--serif:'Source Serif 4',Georgia,'Times New Roman',serif;--mono:'JetBrains Mono',Consolas,monospace;
+--ease:cubic-bezier(.2,.8,.2,1);--bar:56px}
+:root[data-theme="light"]{
+--bg:#eef2f0;--bg2:#fff;--panel:#fff;--panel2:#f5f8f6;--solid:#fff;
+--line:rgba(8,40,33,.13);--line2:rgba(8,40,33,.24);
+--ink:#0c1f1a;--ink2:#37504a;--muted:#566b64;--ink0:#06120f;
+--emer2:#00775e;--emers:#00775e;--gBg:rgba(15,157,99,.13);--gInk:#0b6b44;--aBg:rgba(180,128,26,.15);--aInk:#7a5406;
+--hover:rgba(0,179,136,.08);--focus:rgba(0,120,94,.25);--code:#0b1c17;
+--t1:#00805f;--t2:#007f8a;--t3:#1f6f96;--t4:#8b4f7d;--t5:#4d7d0f;
+--sky1:#dfeae5;--sky2:#f6efd9;--sun:#e0a821;--ridge1:#a9c4b9;--ridge2:#6f968a;--fg:#274a40}
+*{box-sizing:border-box}
+html{scroll-behavior:auto}
+body{margin:0;font-family:var(--sans);font-size:15px;line-height:1.55;color:var(--ink);background:var(--bg);-webkit-font-smoothing:antialiased;font-variant-numeric:tabular-nums;padding-bottom:var(--bar)}
+h1,h2,h3{margin:0;font-family:var(--serif);font-weight:600;letter-spacing:-.01em;text-wrap:balance}
+p{margin:0}
+button{font:inherit;color:inherit;cursor:pointer}
+:focus-visible{outline:2px solid var(--emer);outline-offset:2px}
+em{font-style:italic;color:var(--emer2)}
+.kick{font-size:11px;letter-spacing:.12em;text-transform:uppercase;font-weight:700;color:var(--muted)}
+.mono{font-family:var(--mono)}
+
+/* header */
+header.top{position:relative;overflow:hidden;background:linear-gradient(135deg,#053328 0%,#00634f 62%,#00795f 100%);color:#fff}
+header.top::after{content:"";position:absolute;left:0;right:0;bottom:0;height:3px;background:linear-gradient(90deg,#05c690,rgba(5,198,144,0))}
+.hwrap{position:relative;max-width:1440px;margin:0 auto;padding:16px 24px 18px;display:flex;align-items:center;gap:18px;flex-wrap:wrap}
+.wordmark{font-weight:700;letter-spacing:.14em;font-size:13px;text-transform:uppercase;white-space:nowrap}
+.hdiv{width:1px;align-self:stretch;background:rgba(255,255,255,.2)}
+.htitle .kick{color:rgba(255,255,255,.72)}
+.htitle h1{font-size:21px;color:#fff}.htitle h1 em{color:#8ee4c5}
+.htitle p{margin-top:3px;font-size:12px;color:rgba(255,255,255,.75)}
+.hsp{flex:1}
+.seg{display:flex;gap:2px;border:1px solid rgba(255,255,255,.22);border-radius:99px;padding:2px;background:rgba(0,0,0,.18)}
+.seg button{padding:6px 12px;border-radius:99px;font-size:12px;font-weight:600;color:rgba(255,255,255,.78);background:none;border:0;white-space:nowrap}
+.seg button[aria-pressed="true"]{background:rgba(255,255,255,.2);color:#fff}
+
+/* acts */
+.act{position:relative}
+.act.pin{height:calc(var(--span,250) * 1vh)}
+.stage{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden;display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:clamp(20px,4vw,64px);align-items:center;padding:clamp(20px,5vw,72px);padding-bottom:calc(var(--bar) + clamp(16px,3vw,40px))}
+.stage.flip{grid-template-columns:minmax(0,7fr) minmax(0,5fr)}
+.stage.flip .copy{order:2}
+.copy{position:relative;z-index:3;max-width:520px}
+.copy h2{font-size:clamp(30px,4.6vw,60px);line-height:1.04;margin:12px 0 16px}
+.copy p.lead{font-size:clamp(15px,1.35vw,18px);color:var(--ink2);max-width:46ch}
+.copy p.lead + p.lead{margin-top:12px}
+.q{margin-top:22px;padding:14px 16px;border-left:3px solid var(--tc,var(--emer));background:var(--panel);border-radius:0 10px 10px 0;opacity:calc((var(--p,0) - .55) * 6);transform:translateY(calc((1 - min(1,max(0,(var(--p,0) - .55) * 6))) * 14px))}
+.q b{display:block;font-family:var(--serif);font-size:19px;font-weight:600;color:var(--ink0)}
+.q span{display:block;font-size:13px;color:var(--ink2);margin-top:3px}
+.q small{display:block;margin-top:6px;font-size:10.5px;letter-spacing:.11em;text-transform:uppercase;font-weight:700;color:var(--tc,var(--emer2))}
+.visual{position:relative;height:min(68vh,620px);border-radius:14px;border:1px solid var(--line);background:var(--bg2);overflow:hidden}
+.visual svg{position:absolute;inset:0;width:100%;height:100%}
+.visual video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.slot{position:absolute;left:10px;top:10px;z-index:4;font-family:var(--mono);font-size:10.5px;padding:4px 8px;border-radius:6px;border:1px dashed var(--line2);background:var(--solid);color:var(--muted)}
+.slot b{color:var(--emer2);font-weight:600}
+
+/* hero */
+#hero .stage{display:block;padding:0}
+.plane{position:absolute;inset:-6% -6%;will-change:transform}
+.p-sky{background:radial-gradient(60% 55% at 62% 62%,var(--sky2),var(--sky1) 70%)}
+.p-sun{inset:auto;left:58%;top:44%;width:16vmin;height:16vmin;border-radius:50%;background:var(--sun);opacity:.85;transform:translate(calc(var(--mx,0) * -6px),calc(var(--p,0) * -90px + var(--my,0) * -4px))}
+.p-far{transform:translate(calc(var(--mx,0) * -10px),calc(var(--p,0) * -40px))}
+.p-mid{transform:translate(calc(var(--mx,0) * -22px),calc(var(--p,0) * -110px + var(--my,0) * -6px)) scale(calc(1 + var(--p,0) * .06))}
+.p-fg{transform:translate(calc(var(--mx,0) * -46px),calc(var(--p,0) * -230px + var(--my,0) * -12px)) scale(calc(1 + var(--p,0) * .16))}
+.plane svg{position:absolute;inset:0;width:100%;height:100%}
+.hero-copy{position:absolute;z-index:5;left:clamp(20px,6vw,90px);bottom:calc(var(--bar) + clamp(28px,9vh,110px));max-width:min(680px,84vw);opacity:calc(1 - var(--p,0) * 1.6);transform:translateY(calc(var(--p,0) * -60px))}
+.hero-copy h2{font-size:clamp(38px,7vw,96px);line-height:.98;margin:14px 0 18px}
+.hero-copy p{font-size:clamp(16px,1.6vw,21px);color:var(--ink2);max-width:40ch}
+.hero-copy .scrim{position:absolute;inset:-28px -40px;z-index:-1;background:radial-gradient(closest-side,var(--bg),transparent);opacity:.82}
+.five{position:absolute;z-index:5;right:clamp(20px,6vw,90px);top:clamp(70px,16vh,160px);display:grid;gap:8px;opacity:calc((var(--p,0) - .35) * 4)}
+.five div{font-family:var(--serif);font-size:clamp(17px,2.1vw,28px);color:var(--ink0);padding-left:14px;border-left:3px solid var(--c);transform:translateX(calc((1 - min(1,max(0,(var(--p,0) - .35 - var(--i) * .07) * 6))) * 40px));opacity:calc((var(--p,0) - .35 - var(--i) * .07) * 6)}
+
+/* act: reward */
+.tablet{position:absolute;left:50%;top:50%;width:min(62%,380px);aspect-ratio:5/6;transform:translate(-50%,-50%) rotate(-3deg);border-radius:26px 30px 24px 34px;background:linear-gradient(145deg,#c9a57b,#9a7550);box-shadow:inset 0 0 0 2px rgba(60,38,18,.25),inset 8px 10px 30px rgba(255,235,200,.25),inset -10px -14px 30px rgba(60,38,18,.35)}
+.tablet svg{position:absolute;inset:0}
+.marks{position:absolute;left:12%;right:12%;bottom:11%;display:grid;grid-template-columns:repeat(8,1fr);gap:9px 6px}
+.marks i{height:18px;background:#5a3d22;clip-path:polygon(50% 0,100% 30%,60% 100%,40% 100%,0 30%);opacity:0;transform:translateY(-6px);transition:opacity .25s,transform .25s}
+.marks i.on{opacity:.85;transform:none}
+.strike{position:absolute;left:14px;right:14px;bottom:14px;z-index:4;padding:12px 14px;border-radius:10px;background:var(--solid);border:1px solid var(--line2);font-size:13.5px;color:var(--ink2);opacity:calc((var(--p,0) - .68) * 8);transform:translateY(calc((1 - min(1,max(0,(var(--p,0) - .68) * 8))) * 16px))}
+.strike b{color:var(--ink0)}
+
+/* act: select (reveal) */
+.flow{padding:clamp(60px,12vh,140px) clamp(20px,6vw,90px);display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:clamp(24px,5vw,72px);align-items:center;max-width:1440px;margin:0 auto}
+.flow .q{opacity:1;transform:none}
+.cells{display:grid;grid-template-columns:repeat(12,1fr);gap:5px;padding:18px;border:1px solid var(--line);border-radius:14px;background:var(--bg2);position:relative}
+.cells i{aspect-ratio:3/4;border-radius:3px 3px 0 0;background:var(--panel2);border:1px solid var(--line);opacity:.35;transition:opacity .5s var(--ease),background .5s;transition-delay:calc(var(--i) * 18ms)}
+.on .cells i{opacity:1}
+.on .cells i.pass{background:var(--t3);border-color:var(--t3)}
+.cells .slot{top:auto;bottom:10px}
+[data-a]{opacity:0;transform:translateY(26px);transition:opacity .8s var(--ease),transform .8s var(--ease);transition-delay:calc(var(--d,0) * 110ms)}
+.on [data-a]{opacity:1;transform:none}
+
+/* act: grow (pan) */
+#grow .stage{display:block;padding:0}
+.pan-head{position:absolute;z-index:4;left:clamp(20px,6vw,90px);top:clamp(22px,7vh,70px);max-width:560px}
+.pan-head h2{font-size:clamp(28px,4.2vw,54px);line-height:1.05;margin-top:10px}
+.track{position:absolute;left:0;top:0;height:100%;display:flex;align-items:flex-end;gap:4vw;padding:0 8vw calc(var(--bar) + 6vh);will-change:transform}
+.panel{flex:none;width:min(78vw,760px);height:min(52vh,460px);border-radius:14px;border:1px solid var(--line);background:var(--bg2);position:relative;overflow:hidden;display:flex;flex-direction:column;justify-content:flex-end;padding:22px}
+.panel h3{font-size:clamp(24px,3vw,38px)}
+.panel p{color:var(--ink2);margin-top:6px;max-width:44ch}
+.panel .rung{position:absolute;right:18px;top:14px;font-family:var(--serif);font-style:italic;font-size:15px;color:var(--t4)}
+.panel.end{border-left:3px solid var(--t4);background:var(--panel)}
+
+/* act: measure */
+#measure .gl{stroke:var(--line2);stroke-width:1;fill:none}
+#measure .ax{stroke:var(--emer);stroke-width:2;fill:none}
+#measure text{font-family:var(--sans);font-size:13px;fill:var(--muted)}
+#measure text.f{font-family:var(--serif);font-size:17px;fill:var(--ink0)}
+#jobdot{fill:var(--t2)}
+#jobring{fill:none;stroke:var(--t2);stroke-width:1.5}
+
+/* act: search */
+.cards3{display:grid;gap:14px}
+.yr{display:grid;grid-template-columns:86px 1fr;gap:16px;padding:18px;border:1px solid var(--line);border-radius:14px;background:var(--bg2)}
+.yr b{font-family:var(--serif);font-size:30px;line-height:1;color:var(--emer2)}
+.yr h3{font-size:19px}
+.yr p{color:var(--ink2);font-size:14px;margin-top:4px}
+.yr.kf{border-color:var(--emer);background:var(--gBg)}
+
+/* act: converge */
+#converge .stage{display:block;padding:0}
+#braid{position:absolute;inset:0;width:100%;height:100%}
+#braid path{fill:none;stroke-width:3;stroke-linecap:round}
+#braid .one{stroke:var(--emer2);stroke-width:7}
+.cv-copy{position:absolute;z-index:4;left:clamp(20px,6vw,90px);top:clamp(22px,8vh,80px);max-width:620px}
+.cv-copy h2{font-size:clamp(34px,6vw,80px);line-height:1}
+.cv-copy p{margin-top:14px;color:var(--ink2);font-size:clamp(15px,1.35vw,18px);max-width:44ch}
+.mile{position:absolute;z-index:4;left:clamp(20px,6vw,90px);right:clamp(20px,6vw,90px);bottom:calc(var(--bar) + clamp(20px,6vh,60px));display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+.mile div{padding:12px 14px;border-radius:10px;border:1px solid var(--line);background:var(--solid);opacity:0;transform:translateY(18px);transition:opacity .5s var(--ease),transform .5s var(--ease)}
+.mile div.on{opacity:1;transform:none}
+.mile b{display:block;font-family:var(--serif);font-size:20px;color:var(--emer2)}
+.mile span{font-size:12.5px;color:var(--ink2)}
+
+/* close */
+#now{padding:clamp(70px,14vh,160px) clamp(20px,6vw,90px) clamp(60px,10vh,120px);max-width:1440px;margin:0 auto}
+#now h2{font-size:clamp(34px,6vw,84px);line-height:1;max-width:16ch}
+#now p.lead{margin-top:18px;font-size:clamp(16px,1.5vw,20px);color:var(--ink2);max-width:58ch}
+.caps{margin-top:36px;display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:12px}
+.cap{padding:16px;border-radius:12px;border:1px solid var(--line);background:var(--bg2);border-top:3px solid var(--c,var(--forest))}
+.cap small{display:block;font-size:10.5px;letter-spacing:.11em;text-transform:uppercase;font-weight:700;color:var(--muted)}
+.cap b{display:block;font-family:var(--serif);font-size:19px;margin-top:6px;color:var(--ink0)}
+.suite{margin-top:14px;padding:18px 20px;border-radius:12px;background:linear-gradient(135deg,#053328,#00634f);color:#fff;display:flex;gap:18px;align-items:center;flex-wrap:wrap}
+.suite b{font-family:var(--serif);font-size:22px}
+.suite span{color:rgba(255,255,255,.82);font-size:14px;flex:1;min-width:240px}
+
+/* loom bar */
+.loom{position:fixed;left:0;right:0;bottom:0;height:var(--bar);z-index:50;display:flex;align-items:center;gap:14px;padding:0 16px;background:var(--solid);border-top:1px solid var(--line2)}
+.loom .play{flex:none;padding:8px 14px;border-radius:99px;border:0;background:linear-gradient(135deg,#00634f,#00997a);color:#fff;font-weight:600;font-size:12.5px}
+.loom .time{flex:none;font-family:var(--mono);font-size:12px;color:var(--ink2);min-width:92px}
+.loom .where{flex:none;font-size:12px;color:var(--muted);max-width:22ch;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.threads{flex:1;display:grid;grid-template-columns:repeat(5,1fr);gap:8px;min-width:0}
+.th{position:relative;padding-top:9px;font-size:11px;font-weight:600;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;transition:color .4s}
+.th::before{content:"";position:absolute;left:0;right:0;top:0;height:3px;border-radius:3px;background:var(--line2);transition:background .5s}
+.th.lit{color:var(--ink0)}.th.lit::before{background:var(--c)}
+.loom.one .threads{gap:0}.loom.one .th::before{border-radius:0;background:var(--emer2)}
+.prog{position:absolute;left:0;top:-2px;height:2px;background:var(--emer);width:calc(var(--prog,0) * 100%)}
+
+/* spec view */
+#spec{display:none;max-width:1200px;margin:0 auto;padding:28px 24px 80px}
+body.spec #story,body.spec .loom{display:none}
+body.spec #spec{display:block}
+body.spec{padding-bottom:0}
+#spec h2{font-size:26px;margin:34px 0 6px}
+#spec h2:first-child{margin-top:0}
+#spec .hint{color:var(--muted);font-size:13px;margin-bottom:14px;max-width:80ch}
+.tblwrap{overflow:auto;border:1px solid var(--line);border-radius:12px;background:var(--bg2)}
+table{border-collapse:collapse;width:100%;font-size:13px;min-width:860px}
+th{text-align:left;font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);padding:10px 12px;background:var(--solid);position:sticky;top:0;white-space:nowrap}
+td{padding:10px 12px;border-top:1px solid var(--line);vertical-align:top}
+td.n{font-family:var(--mono);white-space:nowrap}
+tr.peak td{background:var(--gBg)}
+.badge{display:inline-block;font-size:10.5px;font-weight:700;padding:2px 8px;border-radius:99px;background:var(--gBg);color:var(--gInk)}
+.badge.a{background:var(--aBg);color:var(--aInk)}
+.grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(340px,1fr));gap:14px}
+.card{border:1px solid var(--line);border-radius:12px;background:var(--bg2);padding:16px;display:flex;flex-direction:column;gap:10px}
+.card .hd{display:flex;gap:10px;align-items:baseline;flex-wrap:wrap}
+.card .id{font-family:var(--mono);font-weight:600;color:var(--emer2)}
+.card h3{font-size:17px}
+.card .meta{font-size:12px;color:var(--muted)}
+pre{margin:0;white-space:pre-wrap;word-break:break-word;font-family:var(--mono);font-size:12px;line-height:1.55;background:var(--code);color:#cfe7dd;border-radius:9px;padding:12px;max-height:260px;overflow:auto}
+.copy-btn{align-self:flex-start;padding:6px 12px;border-radius:8px;border:1px solid var(--line2);background:var(--panel2);font-size:12px;font-weight:600}
+.copy-btn:hover{background:var(--hover)}
+ul.src{margin:0;padding-left:18px;font-size:13.5px;color:var(--ink2)}
+ul.src li{margin:5px 0}
+a{color:var(--emer2)}
+footer.page-footer{background:#053328;color:rgba(255,255,255,.82);text-align:center;font-size:12px;padding:22px 20px 18px;border-top:3px solid #05c690}
+footer .ai{display:block;max-width:760px;margin:10px auto 0;padding-top:10px;border-top:1px solid rgba(255,255,255,.14);font-family:var(--serif);font-style:italic;color:rgba(255,255,255,.68)}
+
+@media (max-width:900px){
+ .stage,.stage.flip{grid-template-columns:1fr;grid-template-rows:auto minmax(0,1fr);align-items:start;gap:16px}
+ .stage.flip .copy{order:0}
+ .visual{height:100%;min-height:200px}
+ .copy h2{margin:8px 0 10px}
+ .q{margin-top:12px;padding:10px 12px}
+ .flow{grid-template-columns:1fr}
+ .five{top:84px}
+ .mile{grid-template-columns:repeat(2,minmax(0,1fr))}
+ .mile div{padding:7px 10px}.mile b{font-size:15px}.mile span{display:none}
+ #braid{top:30%;height:34%}
+ .loom .where{display:none}
+ .hdiv{display:none}
+}
+@media (max-width:640px){
+ .loom{gap:8px;padding:0 10px}
+ .loom .time{min-width:0;font-size:11px}
+ .th{font-size:0;padding-top:0;height:14px}
+ .th::before{top:5px}
+ .yr{grid-template-columns:1fr;gap:6px}
+ .seg button{padding:6px 9px;font-size:11.5px}
+}
+@media (prefers-reduced-motion:reduce){
+ *,*::before,*::after{transition:none!important;animation:none!important}
+ [data-a]{opacity:1!important;transform:none!important}
+}
+
+/* Approved preview artwork */
+.artwork{position:absolute;inset:0;overflow:hidden;pointer-events:none}
+.artwork-layer{position:absolute;inset:-8%;will-change:transform}
+.artwork-layer img{display:block;width:100%;height:100%;object-fit:cover;object-position:center}
+#hero .artwork{background:url('assets/A0_still_v1.png') center / cover no-repeat}
+#hero .artwork-layer{visibility:hidden}
+#hero .artwork.ready .artwork-layer{visibility:visible}
+#organise .visual > .slot,#organise #svgOrg,#reward .visual > .slot,#reward .tablet{display:none}
+@media(max-width:600px){#organise .artwork-layer img{object-position:25% center}}
+
+/* Final media integration; the preview's typography, palette and engine remain. */
+.q small{font-size:11px;color:color-mix(in srgb,var(--tc,var(--emer2)) 65%,var(--ink0));font-weight:700}
+.still{display:block;width:100%;height:100%;object-fit:cover}
+.exam-visual{height:auto;aspect-ratio:16/9;min-height:0}
+.office-visual{height:auto;aspect-ratio:16/9;min-height:0}
+#grow .stage{display:flex;flex-direction:column;align-items:stretch;justify-content:center;gap:22px;padding:clamp(20px,5vw,72px);padding-bottom:calc(var(--bar) + clamp(16px,3vw,40px))}
+#grow .pan-head{position:static;max-width:560px}
+#grow .track{position:static;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px;height:auto;padding:0;transform:none;will-change:auto}
+#grow .panel{margin:0;width:auto;height:auto;padding:0;display:block}
+#grow .panel img{display:block;width:100%;height:auto;aspect-ratio:3/2;object-fit:cover}
+#grow figcaption{padding:16px 18px 20px}
+#grow .panel h3{font-size:clamp(24px,2.5vw,34px)}
+#grow .panel p{font-size:13px}
+#grow .grow-question{margin:0;max-width:760px}
+#converge .stage{background:#050807}
+#a7-stage{--emerald:#4FE3B5;--kf-forest:#00634F;--white:#F5F8F7;position:absolute;left:50%;top:calc((100% - var(--bar))/2);transform:translate(-50%,-50%);width:min(100%,calc((100svh - var(--bar)) * 16/9));aspect-ratio:16/9;overflow:hidden;isolation:isolate;background:#050807}
+#a7-video{display:block;width:100%;height:100%;object-fit:contain;background:#050807}
+#a7-word{font-family:"Manrope","Arial Black","Helvetica Neue","Segoe UI",system-ui,-apple-system,sans-serif}
+#a7-overlay *{box-sizing:border-box;margin:0;padding:0}
+#converge .cv-copy,#converge .mile div.ring.on{opacity:calc(1 - min(1,max(0,(var(--p,0) * 10.8 - 6.7)/.8)))}
+#now{isolation:isolate;overflow:hidden}
+#now .closing-loop{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2;opacity:.42;pointer-events:none}
+#now::before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,var(--bg),transparent 40%,var(--bg));pointer-events:none}
+footer .credit{display:block;margin-top:8px;font-size:10px;letter-spacing:.08em;color:rgba(255,255,255,.68)}
+@media(max-width:899px){
+ #grow.act.pin{height:auto}
+ #grow .stage{position:relative;height:auto;min-height:100svh;padding:40px 24px calc(var(--bar) + 32px)}
+ #grow .track{grid-template-columns:1fr;gap:20px}
+ #grow .panel p{font-size:14px}
+ #hero .artwork{background-position:64% center}
+ #hero .artwork-layer{inset:-4%}
+ #hero .artwork-layer img{object-position:64% center}
+ #hero .hero-copy{bottom:calc(var(--bar) + 6vh)}
+ #hero .five{left:24px;right:24px;top:72px}
+}
+@media(min-width:900px) and (max-height:700px){
+ #grow .stage{gap:12px;padding-top:20px;padding-bottom:calc(var(--bar) + 20px)}
+ #grow .pan-head h2{font-size:32px}
+ #grow figcaption{padding:10px 12px}
+ #grow .panel p{font-size:12px}
+}
+    #a7-overlay {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      overflow: hidden;
+    }
+
+    #a7-pulse {
+      position: absolute;
+      top: 58%;
+      left: 0;
+      width: 42%;
+      height: 38%;
+      transform: translate3d(-120%, -50%, 0);
+      background: radial-gradient(
+        ellipse at center,
+        rgba(79, 227, 181, 0.42) 0%,
+        rgba(79, 227, 181, 0.16) 32%,
+        rgba(79, 227, 181, 0.0) 70%
+      );
+      filter: blur(6px);
+      mix-blend-mode: screen;
+      opacity: 0;
+      will-change: transform, opacity;
+    }
+
+    #a7-word {
+      position: absolute;
+      left: 50%;
+      top: 80%;
+      transform: translate(-50%, -50%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--white);
+      font-weight: 800;
+      font-size: clamp(1.55rem, 8.5vw, 5.45rem);
+      line-height: 1;
+      letter-spacing: 0;
+      text-transform: uppercase;
+      white-space: nowrap;
+      perspective: 900px;
+      opacity: 0;
+    }
+
+    #a7-overlay .group { display: flex; align-items: center; }
+
+    #a7-overlay .letter {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0 0.11em;
+      font-weight: 800;
+      color: var(--white);
+      text-shadow: 0 0 18px rgba(79, 227, 181, 0);
+      -webkit-text-stroke: 0.5px transparent;
+      will-change: opacity, transform, color, text-shadow;
+      transform: translateZ(0);
+    }
+
+    #a7-overlay .letter[data-tone="emerald"] {
+      color: var(--emerald);
+      text-shadow: 0 0 22px rgba(79, 227, 181, 0.35);
+    }
+
+    #a7-overlay .space {
+      display: inline-block;
+      width: 0;
+      flex: 0 0 auto;
+      height: 1em;
+      overflow: hidden;
+      will-change: width;
+    }
+
+    #a7-overlay .letter.flip { position: relative; }
+
+    #a7-overlay .sizer {
+      visibility: hidden;
+      pointer-events: none;
+      display: block;
+    }
+
+    #a7-overlay .glyph {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transform-origin: center center;
+      will-change: transform, opacity;
+    }
+
+    #a7-glint {
+      position: absolute;
+      left: 50%;
+      top: 80%;
+      width: min(96%, 58rem);
+      height: 2.2em;
+      transform: translate(-50%, -50%);
+      pointer-events: none;
+      overflow: hidden;
+      opacity: 0;
+      mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+      -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+    }
+
+    #a7-glint .bar {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      width: 16%;
+      left: -16%;
+      background: linear-gradient(
+        90deg,
+        rgba(79, 227, 181, 0) 0%,
+        rgba(79, 227, 181, 0.12) 38%,
+        rgba(255, 255, 255, 0.32) 50%,
+        rgba(79, 227, 181, 0.14) 62%,
+        rgba(79, 227, 181, 0) 100%
+      );
+      filter: blur(10px);
+      mix-blend-mode: screen;
+      will-change: left;
+    }
+
+
+@media(max-width:640px){
+ #a7-word{top:81.5%;font-size:clamp(1.42rem,8.6vw,2.55rem)}
+ #a7-glint{top:81.5%}
+}
+@media(prefers-reduced-motion:reduce){
+ #a7-overlay .letter,#a7-overlay .glyph,#a7-pulse,#a7-glint .bar,#a7-overlay .space{transition:none!important}
+}
+
+/* ===== 2026-11-18 fixes ===== */
+/* A3: framed, plays once and holds */
+.exam-frame{margin:0;padding:10px;border-radius:18px;border:1px solid var(--line2);background:var(--panel);box-shadow:0 18px 50px rgba(0,0,0,.28)}
+.exam-frame .visual{border-radius:10px}
+.exam-frame figcaption{display:flex;gap:10px;align-items:baseline;padding:10px 6px 2px;font-size:12.5px;line-height:1.45;color:var(--ink2)}
+.exam-frame figcaption .kick{flex:none;color:var(--t3)}
+/* A4: panels reveal one after another */
+.js #grow .panel{opacity:0;transform:translateY(36px) scale(.97);transition:opacity .8s var(--ease),transform .8s var(--ease),border-color .8s}
+.js #grow .panel img{filter:saturate(.6) brightness(.8);transition:filter 1.2s var(--ease)}
+.js #grow .panel.in{opacity:1;transform:none;border-color:var(--line2)}
+.js #grow .panel.in img{filter:none}
+#grow .panel .step{position:absolute;right:12px;top:12px;z-index:2;font-family:var(--mono);font-size:11px;padding:3px 8px;border-radius:99px;background:rgba(5,12,10,.72);color:#fff;border:1px solid rgba(255,255,255,.18)}
+/* A7: readable copy clear of the braid, one row of rings, acquisition chips + counter */
+#converge .cv-copy{top:clamp(16px,4vh,40px);max-width:min(1100px,calc(100% - 2 * clamp(20px,6vw,90px)))}
+#converge .cv-copy h2{font-size:clamp(34px,4.3vw,62px)}
+#converge .cv-copy p{max-width:70ch;margin-top:10px;color:var(--ink);text-shadow:0 1px 12px #050807,0 0 4px #050807}
+@media(min-width:900px){#converge .cv-copy h2{white-space:nowrap}}
+#converge .mile{grid-template-columns:repeat(4,minmax(0,1fr));bottom:calc(var(--bar) + clamp(14px,3vh,32px));gap:8px}
+#converge .mile > div{padding:9px 12px}
+#converge .mile b{font-size:18px}
+#converge .mile span{display:block;font-size:12px;line-height:1.35}
+#mile > div:nth-of-type(1){grid-area:2/1}#mile > div:nth-of-type(2){grid-area:2/2}#mile > div:nth-of-type(3){grid-area:2/3}#mile > div:nth-of-type(4){grid-area:2/4}
+#mile > div:nth-of-type(5){grid-area:2/1/3/3}#mile > div:nth-of-type(6){grid-area:2/3/3/5}
+.acq{--chipA:1;grid-area:1/1/2/-1;display:flex;align-items:center;gap:14px;padding:8px 12px;border-radius:10px;background:rgba(5,8,7,calc(.78 * var(--chipA)));border:1px solid rgba(255,255,255,calc(.09 * var(--chipA)));
+ opacity:calc(min(1,max(0,(var(--p,0) - .12) * 12)) * (1 - min(1,max(0,(var(--p,0) * 10.8 - 6.7)/.8))))}
+.acq-n{flex:none;margin:0;font-size:12px;color:#b7c7c0;white-space:nowrap}
+.acq-n strong{display:inline-block;min-width:2ch;text-align:right;font-family:var(--serif);font-size:26px;line-height:1;color:#4fe3b5;margin-right:4px;vertical-align:-3px}
+.chips{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:5px}
+.chips li{font-size:11px;line-height:1;padding:5px 8px;border-radius:99px;border:1px solid rgba(255,255,255,.12);color:rgba(232,240,236,.38);background:rgba(255,255,255,.02);transition:color .4s,border-color .4s,background .4s,box-shadow .4s}
+.chips li.on{color:#e8f0ec;border-color:rgba(79,227,181,.65);background:rgba(79,227,181,.12);box-shadow:0 0 12px rgba(79,227,181,.25)}
+@media(min-width:900px){.acq{--chipA:calc(1 - min(1,max(0,(var(--p,0) - .548) * 50)))}.chips{opacity:var(--chipA)}}
+#converge .mile > div.ring.on{opacity:calc(1 - min(1,max(0,(var(--p,0) * 10.8 - 6.7)/.8)))}
+@media(max-width:899px){
+ #converge .mile{grid-template-columns:repeat(2,minmax(0,1fr));gap:6px}
+ #converge .mile > div{padding:6px 9px}#converge .mile b{font-size:15px}#converge .mile span{display:none}
+ #mile > div:nth-of-type(1){grid-area:2/1}#mile > div:nth-of-type(2){grid-area:2/2}#mile > div:nth-of-type(3){grid-area:3/1}#mile > div:nth-of-type(4){grid-area:3/2}
+ #mile > div:nth-of-type(5){grid-area:2/1}#mile > div:nth-of-type(6){grid-area:2/2}
+ .acq{flex-direction:column;align-items:flex-start;gap:6px;padding:7px 9px}
+ .acq-n strong{font-size:20px}
+ .chips{gap:4px}.chips li{font-size:9.5px;padding:4px 6px}
+}
+/* A8: brighter closing loop, CSS only */
+#now .closing-loop{opacity:.85;filter:brightness(1.6) saturate(1.12) contrast(1.04)}
+#now > .kick,#now > h2,#now > p.lead{text-shadow:0 1px 16px var(--bg),0 0 3px var(--bg)}
+#now::before{background:linear-gradient(180deg,var(--bg) 0%,transparent 18%,transparent 78%,var(--bg) 100%),linear-gradient(90deg,color-mix(in srgb,var(--bg) 55%,transparent) 0%,transparent 70%)}
+:root[data-theme="light"] #now .closing-loop{opacity:.55;filter:brightness(1.5) saturate(1.1)}
+/* Play button state */
+.loom .play[aria-pressed="true"]{background:#e8f0ec;color:#053328;box-shadow:0 0 0 2px var(--emer)}
+@media(prefers-reduced-motion:reduce){.js #grow .panel{opacity:1;transform:none}.js #grow .panel img{filter:none}}
+
+</style>
+</head>
+<body>
+
+<header class="top"><div class="hwrap">
+  <div class="wordmark">Korn Ferry</div><div class="hdiv"></div>
+  <div class="htitle"><div class="kick">Korn Ferry · A history of work</div>
+    <h1>The Five <em>Questions</em> of Work</h1><p>Twelve thousand years. Five enduring questions.</p></div>
+  <div class="hsp"></div>
+  <div class="seg" role="group" aria-label="Scroll mode"><button id="mSmooth" aria-pressed="true">Smooth rAF</button><button id="mNative" aria-pressed="false">Native</button></div>
+  <div class="seg" role="group" aria-label="View"><button id="vStage" aria-pressed="true">Interactive stage</button><button id="vSpec" aria-pressed="false">Motion spec</button></div>
+  <div class="seg" role="group" aria-label="Theme"><button data-th="light" aria-pressed="false">Light</button><button data-th="dark" aria-pressed="true">Dark</button></div>
+</div></header>
+
+<main id="story">
+
+<!-- ACT 0 · COLD OPEN · layered hero -->
+<section class="act pin" id="hero" data-act="open" style="--span:200">
+ <div class="stage">
+  <div class="artwork" aria-hidden="true">
+   <div class="artwork-layer" data-d=".15" data-z="1.00"><img src="assets/A0_L1_sky.png" alt=""></div>
+   <div class="artwork-layer" data-d=".35" data-z="1.03"><img src="assets/A0_L2_far.png" alt=""></div>
+   <div class="artwork-layer" data-d=".70" data-z="1.08"><img src="assets/A0_L3_mid.png" alt=""></div>
+   <div class="artwork-layer" data-d="1.00" data-z="1.14"><img src="assets/A0_L4_fore.png" alt=""></div>
+  </div>
+  <div class="hero-copy"><div class="scrim"></div>
+   <div class="kick">12,000 years in five minutes</div>
+   <h2>Work is the oldest <em>technology</em> we have.</h2>
+   <p>The tools keep changing. The five questions behind them never have.</p>
+  </div>
+  <div class="five" aria-label="The five questions">
+   <div style="--i:0;--c:var(--t1)">How do we organise?</div>
+   <div style="--i:1;--c:var(--t2)">What is the work worth?</div>
+   <div style="--i:2;--c:var(--t3)">Who is ready?</div>
+   <div style="--i:3;--c:var(--t4)">How do people grow?</div>
+   <div style="--i:4;--c:var(--t5)">Where do we find them?</div>
+  </div>
+ </div>
+</section>
+
+<!-- ACT 1 · ORGANISE · pinned scrub -->
+<section class="act pin" id="organise" data-act="organise" style="--span:260">
+ <div class="stage">
+  <div class="copy" style="--tc:var(--t1)">
+   <div class="kick">c. 9500 BCE · Göbekli Tepe, Anatolia</div>
+   <h2>Before the farm, the <em>team</em>.</h2>
+   <p class="lead">Hunter-gatherers raised rings of stone pillars weighing several tonnes. Nobody lifts one alone, so somebody had to decide who cuts, who hauls and who feeds the crew.</p>
+   <div class="q"><small>Question one</small><b>How do we organise?</b><span>Today: Organization Strategy. Structure, people and process pulling the same way.</span></div>
+  </div>
+  <div class="visual"><video id="a1-video" class="still" data-media="A1" muted playsinline preload="auto" disablepictureinpicture poster="assets/A1_v7orbit_first.jpg" width="1600" height="900" aria-label="A team raising stone pillars at Göbekli Tepe"></video></div>
+ </div>
+</section>
+
+<!-- ACT 2 · REWARD · pinned step count -->
+<section class="act pin" id="reward" data-act="reward" style="--span:260">
+ <div class="stage flip">
+  <div class="copy" style="--tc:var(--t2)">
+   <div class="kick">c. 3300 BCE · Uruk, Mesopotamia</div>
+   <h2>The first payslip was paid in <em>beer</em>.</h2>
+   <p class="lead">Among the oldest writing we have is a clay record of rations owed to workers. Pay was written down before poetry was.</p>
+   <div class="q"><small>Question two</small><b>What is the work worth?</b><span>Today: Total Rewards. Pay and benefits people can trust and compare.</span></div>
+  </div>
+  <div class="visual"><div class="slot"><b>A2</b> Blender macro tablet</div>
+   <div class="tablet"><svg viewBox="0 0 250 300" aria-hidden="true"><g fill="none" stroke="#5a3d22" stroke-width="5" stroke-linecap="round" opacity=".8"><circle cx="78" cy="70" r="20"/><path d="M58 104 q20 22 40 0"/><path d="M150 46 l22 62 l22 -62 z"/></g></svg><div class="marks" id="marks"></div></div>
+   <div class="strike"><b>c. 1157 BCE, Deir el-Medina.</b> The rations arrive late. The tomb builders put down their tools. It is the first recorded strike.</div>
+  </div>
+ </div>
+</section>
+
+<!-- ACT 3 · SELECT · reveal -->
+<section class="act" id="select" data-act="select">
+ <div class="flow">
+  <figure class="exam-frame"><div class="visual exam-visual"><video data-media="A3" data-once muted playsinline preload="auto" aria-label="An imperial examination compound in later dynasties"></video></div>
+   <figcaption><span class="kick">Reconstruction</span><span>An examination compound: long rows of single cells, one candidate in each.</span></figcaption></figure>
+  <div>
+   <div class="kick" data-a>Imperial China · later dynasties</div>
+   <h2 data-a style="--d:1;font-size:clamp(32px,5vw,66px);line-height:1.02;margin:12px 0 16px">Merit, not <em>birth</em>.</h2>
+   <p class="lead" data-a style="--d:2;color:var(--ink2);font-size:clamp(15px,1.35vw,18px);max-width:46ch">Public office goes to whoever passes a written examination. The system runs for about 1,300 years, until 1905.</p>
+   <div class="q" data-a style="--d:3;--tc:var(--t3)"><small>Question three</small><b>Who is ready?</b><span>Today: Assessment &amp; Succession. Know what good looks like, then close the gap.</span></div>
+  </div>
+ </div>
+</section>
+
+<!-- ACT 4 · GROW · horizontal pan -->
+<section class="act pin" id="grow" data-act="grow" style="--span:300">
+ <div class="stage">
+  <div class="pan-head"><div class="kick">Medieval Europe · the craft guilds</div><h2>Nobody is born <em>ready</em>.</h2></div>
+  <div class="track" id="track">
+   <figure class="panel"><img src="assets/A4_1.jpg" width="1200" height="800" alt="A boy sweeping in a medieval workshop" loading="lazy" decoding="async"><span class="step">1 / 3</span><figcaption><h3>Apprentice</h3><p>Years beside a master. You learn by watching, then by doing the dull parts well.</p></figcaption></figure>
+   <figure class="panel"><img src="assets/A4_2.jpg" width="1200" height="800" alt="A young man carving a wooden joint" loading="lazy" decoding="async"><span class="step">2 / 3</span><figcaption><h3>Journeyman</h3><p>You take the craft on the road and earn a day's wage in other people's workshops.</p></figcaption></figure>
+   <figure class="panel"><img src="assets/A4_3.jpg" width="1200" height="800" alt="A master presenting a carved oak chest to elders" loading="lazy" decoding="async"><span class="step">3 / 3</span><figcaption><h3>Master</h3><p>One piece of work, judged by peers. The original meaning of a masterpiece.</p></figcaption></figure>
+  </div>
+  <div class="q grow-question" style="--tc:var(--t4)"><small>Question four</small><b>How do people grow?</b><span>Today: Leadership &amp; Professional Development. Learning for everyone from new hire to executive.</span></div>
+ </div>
+</section>
+
+<!-- ACT 5 · MEASURE · pinned scrub -->
+<section class="act pin" id="measure" data-act="measure" style="--span:280">
+ <div class="stage">
+  <div class="copy" style="--tc:var(--t2)">
+   <div class="kick">1911 to 1943 · Philadelphia</div>
+   <h2>A job becomes a <em>coordinate</em>.</h2>
+   <p class="lead">In 1911 Frederick Taylor put a stopwatch on the task. In 1943 Edward Hay founded a firm on a harder idea: weigh the job, not the person.</p>
+   <p class="lead">By the early 1950s its Guide Charts scored any role on three factors.</p>
+   <div class="q"><small>Questions one and two get a method</small><b>Job evaluation</b><span>Still the backbone of grading and pay benchmarking in Total Rewards and Organization Strategy.</span></div>
+  </div>
+  <div class="visual">
+   <svg viewBox="0 0 800 520" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
+    <g id="grid"></g>
+    <path class="ax" id="axY" d="M120 440 V70" pathLength="1"/><path class="ax" id="axX" d="M120 440 H720" pathLength="1"/>
+    <text class="f" x="128" y="62">Accountability</text><text class="f" x="600" y="474">Know-how</text><text class="f" x="430" y="250" id="lblPS">Problem solving</text>
+    <circle id="jobring" r="18" cx="0" cy="0"/><circle id="jobdot" r="9" cx="0" cy="0"/>
+    <text id="jobtxt" x="0" y="0">one role, one position</text>
+   </svg>
+  </div>
+ </div>
+</section>
+
+<!-- ACT 6 · SEARCH · reveal -->
+<section class="act" id="search" data-act="search">
+ <div class="flow">
+  <div>
+   <div class="kick" data-a>1959 to 1973 · the knowledge economy</div>
+   <h2 data-a style="--d:1;font-size:clamp(30px,4.6vw,60px);line-height:1.04;margin:12px 0 16px">When the asset is a mind, you go and <em>find</em> it.</h2>
+   <div class="q" data-a style="--d:2;--tc:var(--t5)"><small>Question five</small><b>Where do we find them?</b><span>Today: Talent Acquisition. The right people at every level.</span></div>
+  </div>
+  <div class="cards3">
+   <div class="visual office-visual" data-a><video data-media="A6" muted playsinline loop preload="metadata" aria-label="A quiet office at the beginning of the knowledge economy"></video></div>
+   <div class="yr" data-a style="--d:1"><b>1959</b><div><h3>The knowledge worker gets a name</h3><p>Peter Drucker describes a workforce paid to think.</p></div></div>
+   <div class="yr kf" data-a style="--d:2"><b>1969</b><div><h3>One phone, one assistant, a Rolodex</h3><p>Lester Korn and Richard Ferry open an office in Los Angeles. The door already says International.</p></div></div>
+   <div class="yr" data-a style="--d:3"><b>1973</b><div><h3>Competence over IQ</h3><p>Harvard's David McClelland argues for testing what predicts success in the job.</p></div></div>
+  </div>
+ </div>
+</section>
+
+<!-- ACT 7 · CONVERGE · PEAK · signature braid -->
+<section class="act pin" id="converge" data-act="converge" style="--span:380">
+ <div class="stage">
+  <div id="a7-stage" role="img" aria-label="Five threads converge. Together becomes To Better.">
+   <video id="a7-video" data-media="A7" muted playsinline preload="auto" disablepictureinpicture poster="assets/A7_still_v3.png" aria-hidden="true"></video>
+        <div id="a7-overlay">
+          <div id="a7-pulse"></div>
+          <div id="a7-word" aria-hidden="true">
+            <span class="group group-to">
+              <span class="letter" data-i="0">T</span>
+              <span class="letter" data-i="1">O</span>
+            </span>
+            <span class="space" id="a7-wordSpace"></span>
+            <span class="group group-better">
+              <span class="letter flip" data-i="2">
+                <span class="sizer">B</span>
+                <span class="glyph" data-front="G" data-back="B">G</span>
+              </span>
+              <span class="letter" data-i="3">E</span>
+              <span class="letter" data-i="4">T</span>
+              <span class="letter flip" data-i="5">
+                <span class="sizer">H</span>
+                <span class="glyph" data-front="H" data-back="T">H</span>
+              </span>
+              <span class="letter" data-i="6">E</span>
+              <span class="letter" data-i="7">R</span>
+            </span>
+          </div>
+          <div id="a7-glint"><div class="bar"></div></div>
+        </div>
+  </div>
+  <div class="cv-copy"><div class="kick">2006 to today</div><h2>Five answers. <em>One firm.</em></h2><p>For most of history each question had its own specialists. Then the threads met.</p></div>
+  <div class="mile" id="mile">
+   <aside class="acq" aria-label="Korn Ferry acquisitions since 2006"><p class="acq-n"><strong id="acqN">0</strong> acquisitions since 2006</p><ul class="chips"><li data-at="0.19" title="2006–10">Newman Group</li><li data-at="0.205" title="2006–10">LeaderSource</li><li data-at="0.22" title="2006–10">Lore</li><li data-at="0.235" title="2006–10">Whitehead Mann</li><li data-at="0.25" title="2006–10">Sensa</li><li data-at="0.265" title="2006–10">Global Novations</li><li data-at="0.31" title="2006–10">Pivot Leadership</li><li data-at="0.42" title="2019">Miller Heiman Group</li><li data-at="0.435" title="2019">AchieveForum</li><li data-at="0.45" title="2019">Strategy Execution</li><li data-at="0.465" title="2021">Lucas Group</li><li data-at="0.478" title="2022">Patina Solutions</li><li data-at="0.49" title="2022">ICS</li><li data-at="0.5" title="2023">Salo</li><li data-at="0.51" title="2024">Trilogy International</li></ul></aside>
+   <div class="ring" data-at=".176"><b>2006</b><span>Lominger. Leadership competencies.</span></div>
+   <div class="ring" data-at=".284"><b>2013</b><span>PDI Ninth House. Assessment and coaching.</span></div>
+   <div class="ring" data-at=".392"><b>2015</b><span>Hay Group. Rewards and organisation.</span></div>
+   <div class="ring" data-at=".521"><b>2026</b><span>AMS. Talent acquisition and outsourced recruitment at scale.</span></div>
+   <div data-at=".66"><b>Board &amp; CEO Services</b><span>The table at the top.</span></div>
+   <div data-at=".74"><b>Business Transformation</b><span>All five threads, moving at once.</span></div>
+  </div>
+ </div>
+</section>
+
+<!-- ACT 8 · NOW · close that holds -->
+<section class="act" id="now" data-act="now">
+ <video class="closing-loop" data-media="A8" muted playsinline loop preload="metadata" aria-hidden="true"></video>
+ <div class="kick" data-a>2026 · the next shift</div>
+ <h2 data-a style="--d:1">The tools changed again. The questions <em>did not</em>.</h2>
+ <p class="lead" data-a style="--d:2">AI is rewriting how work gets done, faster than any shift before it. The answers still start in the same five places.</p>
+ <div class="caps">
+  <div class="cap" data-a style="--d:1;--c:var(--t1)"><small>How do we organise?</small><b>Organization Strategy</b></div>
+  <div class="cap" data-a style="--d:2;--c:var(--t2)"><small>What is the work worth?</small><b>Total Rewards</b></div>
+  <div class="cap" data-a style="--d:3;--c:var(--t3)"><small>Who is ready?</small><b>Assessment &amp; Succession</b></div>
+  <div class="cap" data-a style="--d:4;--c:var(--t4)"><small>How do people grow?</small><b>Leadership &amp; Professional Development</b></div>
+  <div class="cap" data-a style="--d:5;--c:var(--t5)"><small>Where do we find them?</small><b>Talent Acquisition</b></div>
+  <div class="cap" data-a style="--d:6"><small>Who leads the leaders?</small><b>Board &amp; CEO Services</b></div>
+  <div class="cap" data-a style="--d:7"><small>How do we change?</small><b>Business Transformation</b></div>
+ </div>
+ <div class="suite" data-a style="--d:8"><b>Korn Ferry Talent Suite</b><span>Launched January 2026. Five decades of the firm's data and method on one platform.</span></div>
+</section>
+</main>
+
+<!-- loom bar: the five threads light as history answers each question -->
+<div class="loom" id="loom"><div class="prog"></div>
+ <button class="play" id="play" aria-pressed="false">Play 5:00</button>
+ <div class="time" id="time">0:00 / 5:00</div>
+ <div class="threads" aria-label="Questions answered so far">
+  <div class="th" style="--c:var(--t1)">Organise</div><div class="th" style="--c:var(--t2)">Reward</div><div class="th" style="--c:var(--t3)">Assess</div><div class="th" style="--c:var(--t4)">Grow</div><div class="th" style="--c:var(--t5)">Find</div>
+ </div>
+ <div class="where" id="where">Cold open</div>
+</div>
+
+<!-- MOTION SPEC view: built from the data below -->
+<section id="spec" aria-label="Motion spec"></section>
+
+<footer class="page-footer"><strong>Korn Ferry</strong> · The Five Questions of Work · Internal use
+ <small class="credit">rmark</small>
+ <span class="ai">This has been produced with help from AI.  Check for accuracy.  Korn Ferry is responsible for all deliverables to clients regardless of production method.</span></footer>
+
+<script>
+/* ============ DATA: edit here, the spec view and the timer follow ============ */
+const ACTS=[
+ {id:'open',name:'Cold open',dur:25,anchor:'12,000 years of work',cap:'The five questions',device:'Layered hero, 4 independent planes',stack:'Motion springs (pointer) + CSS scroll timeline',feel:'Awe',
+  narr:'Every generation believes it invented the modern workplace. It did not. For twelve thousand years the tools of work have changed beyond recognition. The questions behind them have not moved at all. There are five. And every age of human history has had to answer them again.'},
+ {id:'organise',name:'Organise',dur:30,anchor:'Göbekli Tepe, c. 9500 BCE',cap:'Organization Strategy',device:'Pinned scrub, crew gathers and pillars rise',stack:'GSAP ScrollTrigger scrub + pin',feel:'Wonder',
+  narr:'Southeastern Anatolia, around 9500 BCE. People who have never planted a field quarry limestone pillars weighing several tonnes and stand them in rings. No one can lift a pillar alone. Someone has to decide who cuts, who hauls, who feeds the crew. Before the farm, before the city, there was the team. Question one. How do we organise?'},
+ {id:'reward',name:'Reward',dur:30,anchor:'Uruk ration tablet, c. 3300 BCE. First recorded strike, c. 1157 BCE',cap:'Total Rewards',device:'Pinned step count, marks incise one by one',stack:'GSAP ScrollTrigger steps',feel:'Recognition',
+  narr:'Uruk, around 3300 BCE. One of the oldest pieces of writing we have is not a poem or a prayer. It is a record of beer rations owed to workers. Two thousand years later, in Egypt, the rations arrive late and the tomb builders put down their tools. The first recorded strike. Question two. What is the work worth?'},
+ {id:'select',name:'Select',dur:30,anchor:'Imperial examination, 605 CE to 1905',cap:'Assessment & Succession',device:'Reveal in normal flow, cells light in sequence',stack:'CSS scroll-driven timeline (view) or IntersectionObserver',feel:'Fairness',
+  narr:'Imperial China. In later dynasties, the examination system expands. Public office will go to those who pass a written examination, not to those with the right family. The system runs for thirteen centuries. Question three. Who is ready?'},
+ {id:'grow',name:'Grow',dur:30,anchor:'Craft guilds: apprentice, journeyman, master',cap:'Leadership & Professional Development',device:'Three craft stages; pinned triptych on desktop, stacked on phone',stack:'CSS grid + existing scroll engine',feel:'Patience',
+  narr:'Medieval Europe. A craft guild takes a child and returns a master. Apprentice, then journeyman, then a single piece of work good enough to be judged by peers. The masterpiece. Nobody is born ready. Question four. How do people grow?'},
+ {id:'measure',name:'Measure',dur:40,anchor:'Taylor 1911. Hay Group 1943. Guide Charts early 1950s',cap:'Total Rewards + Organization Strategy',device:'Pinned scrub, grid draws, role lands on a coordinate',stack:'GSAP DrawSVG style stroke scrub',feel:'Clarity',
+  narr:'The factory age puts a stopwatch on the task. In 1911 Frederick Taylor calls it scientific management. Then in Philadelphia, in 1943, Edward Hay builds a firm on a harder idea. Weigh the job, not the person. Know-how. Problem solving. Accountability. Three factors, one chart, and any role in any company becomes a coordinate you can compare and pay fairly. Questions one and two finally get a method.'},
+ {id:'search',name:'Search',dur:35,anchor:'Drucker 1959. Korn Ferry 1969. McClelland 1973',cap:'Talent Acquisition',device:'Staggered reveal, three dated cards',stack:'Motion layout + stagger',feel:'Ambition',
+  narr:'By 1959 Peter Drucker has a name for the new majority. Knowledge workers. When the asset is a mind, you cannot order it from a catalogue. In 1969, in Los Angeles, Lester Korn and Richard Ferry open an office with one phone and a Rolodex. Four years later a Harvard psychologist argues we should test for competence, not intelligence. Question five. Where do we find them?'},
+ {id:'converge',name:'Converge',dur:45,peak:true,anchor:'Lominger 2006. PDI Ninth House 2013. Hay Group 2015',cap:'All seven capabilities',device:'SIGNATURE: five threads braid into one line',stack:'GSAP ScrollTrigger scrub, longest pin, Blender plate behind',feel:'Resolution (the peak)',
+  narr:'For most of history each question had its own specialists. Then the threads start to meet. Lominger in 2006. PDI Ninth House in 2013. Hay Group in 2015. Search, assessment, development, rewards and organisation design, under one name. Five answers that used to live in five different rooms now sit at one table, alongside the boardroom and the transformation agenda. One firm, for the whole question of people at work.'},
+ {id:'now',name:'Now',dur:35,anchor:'AI era. Talent Suite, January 2026',cap:'Talent Suite + all capabilities',device:'Close that resolves and holds',stack:'Motion stagger, no pin',feel:'Confidence',
+  narr:'And now the tools are changing again, faster than at any point in those twelve thousand years. In January 2026 Korn Ferry put five decades of data and method onto one platform, Talent Suite. The technology is new. The questions are the ones a crew on an Anatolian hillside was already asking. How do we organise. What is the work worth. Who is ready. How do people grow. Where do we find them.'}
+];
+
+const STYLE='Photographic cinematic documentary realism. 35mm anamorphic lens, natural light, shallow depth of field, soft atmospheric haze. Colour grade: deep forest green shadows, warm amber highlights, restrained saturation. No text, no lettering, no logos, no watermarks, no identifiable real people (hands, backs and silhouettes only). 16:9.';
+
+/* Existing desktop and mobile media paths. A1, A2 and A7 scrub with the act. */
+const SRC={
+ A1:['assets/A1_v7orbit.mp4','assets/A1_v7orbit_1280.mp4'],
+ A2:['assets/A2_tablet.mp4','assets/A2_tablet_1280.mp4'],
+ A3:['assets/A3_exam.mp4','assets/A3_exam_1280.mp4'],
+ A6:['assets/A6_office.mp4','assets/A6_office_1280.mp4'],
+ A7:['assets/A7_braid_v3.mp4','assets/A7_braid_v3_1280.mp4'],
+ A8:['assets/A8_loop.mp4','assets/A8_loop_1280.mp4']
+};
+
+const ASSETS=[
+ {id:'A0',act:'Cold open',title:'Hero depth planes (3 stills + optional 5 s push-in)',tool:'Image generation, then background removal for the two front planes',fmt:'3 PNG, 2560 px wide. Mid and foreground with transparent background',
+  prompt:STYLE+'\n\nPLANE 1 (background): wide limestone plateau at first light, low sun just above the horizon at right of centre, long empty sky, distant hills in haze. Nothing in the foreground.\n\nPLANE 2 (midground, isolate on transparent): a low ridge with four T-shaped standing stones in silhouette, rim-lit by the sun.\n\nPLANE 3 (foreground, isolate on transparent): three people seen from behind in simple wool and hide clothing, dark silhouettes, standing on rough ground at the bottom edge of frame, out of focus.',
+  note:'Each plane moves at a different speed in the hero. Keep the horizon at the same height in all three.'},
+ {id:'A1',act:'Organise',title:'Stone enclosure orbit',tool:'Blender (Cycles), driven through the Blender connector',fmt:'150 frames, 1920x1080, PNG sequence, then all-keyframe MP4',
+  prompt:'Build a Blender scene. A circular enclosure about 20 m across on a bare limestone ridge. Eleven T-shaped limestone pillars 3 to 4 m tall around the perimeter, joined by a low dry-stone wall, and two taller pillars (5.5 m) facing each other in the centre. Rough pecked stone surface with a displacement map, generic shallow reliefs only (do not copy carvings from any real pillar). Twelve low-poly human figures scaled 1.65 m, hauling one pillar on a timber sledge with ropes. Sun at 8 degrees elevation, warm, with volumetric haze. Camera: 35 mm, start low outside the ring, orbit 90 degrees and rise 1.5 m over 150 frames at 30 fps, ease in and out. Cycles, Filmic, 1920x1080, 128 samples with denoise. Render a PNG sequence.',
+  note:'Scrubbed by scroll, so encode with every frame a keyframe (see build notes). Mobile cut: 1280 wide.'},
+ {id:'A2',act:'Reward',title:'Clay ration tablet, macro turntable',tool:'Blender (Cycles)',fmt:'120 frames, 1920x1080, all-keyframe MP4',
+  prompt:'Build a Blender scene. One palm-sized clay tablet, slightly pillow-shaped, on dark basalt. Sculpt shallow impressed marks: rows of small wedge and circle tally impressions and two simple pictographs (a bowl shape and a cone-shaped jar). Invent the layout, do not replicate any specific museum object. Unfired clay shader with subsurface scattering and fine cracks. One raking key light from the left at 15 degrees so the impressions catch shadow. Camera: 100 mm macro, f/2.8, slow 40 degree arc with focus pull from the tally rows to the pictographs over 120 frames.',
+  note:'The coded tally marks stay on top of the plate, so keep the lower third of the tablet quiet.'},
+ {id:'A3',act:'Select',title:'Examination compound at dawn',tool:'Video generation (image to video)',fmt:'5 s, 1080p, then all-keyframe MP4',
+  prompt:STYLE+'\n\nSTILL: a vast walled examination compound in imperial China at dawn, long parallel rows of hundreds of tiny identical brick cells with tiled roofs, each just large enough for one seated person, a few paper lanterns still lit, mist between the rows, seen from a high angle.\n\nMOTION: slow crane up and forward along one row, lantern light flickering, mist drifting. No camera shake.',
+  note:'Sits behind the cell grid at 40% opacity. Period accuracy matters here, review with care.'},
+ {id:'A4',act:'Grow',title:'Guild workshop triptych',tool:'Image generation, same seed and style across three',fmt:'3 stills, 3:2, 1920 px',
+  prompt:STYLE+'\n\nOne medieval European woodworking and metal workshop, lit by a north window and a forge glow. Three frames of the same room and the same pair of hands ageing:\nA) a child apprentice sweeping shavings while watching a master at the bench, seen from behind.\nB) a young journeyman with a pack and tools arriving at a different workshop door at dusk.\nC) older hands setting a finished, intricate lock on a table before three seated judges, faces in shadow.',
+  note:'Three panels of one horizontal pan. Keep bench height and light direction consistent so the pan reads as one room.'},
+ {id:'A5',act:'Measure',title:'1940s evaluation desk (optional plate)',tool:'Video generation',fmt:'5 s, 1080p',
+  prompt:STYLE+'\n\nSTILL: top-down view of a 1940s office desk, a large sheet of ruled chart paper, a fountain pen, a mechanical stopwatch set aside at the edge, a hand drawing a grid line with a steel ruler. No readable text.\n\nMOTION: the pen completes one line, the camera drifts slowly toward the centre of the grid.',
+  note:'Optional. The coded SVG grid carries this act on its own. If used, fade it out as the grid draws.'},
+ {id:'A6',act:'Search',title:'1969 Los Angeles office',tool:'Video generation',fmt:'5 s, 1080p',
+  prompt:STYLE+'\n\nSTILL: a small, tidy late-1960s office at golden hour. One desk, one rotary telephone, one rotary card file, two chairs. Through the window, a new glass office tower and palm trees. Nobody in frame.\n\nMOTION: slow dolly toward the telephone, dust in the window light, the card file turns a few cards on its own as if just used.',
+  note:'Follows the firm\'s own founding description (one phone, one assistant, a card file). No people, no brand marks.'},
+ {id:'A7',act:'Converge (peak)',title:'Five strands braid into one',tool:'Blender (Cycles or Eevee), geometry nodes',fmt:'240 frames, 1920x1080, alpha, PNG sequence plus all-keyframe MP4 on dark',
+  prompt:'Build a Blender scene with geometry nodes. Five thick fibre strands enter from the left, parallel and well separated, each a different colour: #05C690, #00ADBB, #3BA7D6, #C97AB6, #77BC1F. Emissive core with a woven fibre normal map. Over 240 frames the strands travel right, begin to cross over and under each other in a five-strand braid, tighten, and fuse into a single bright emerald (#4FE3B5) cable that exits right. Drive the braid tightness with one animated value from 0 to 1 so it can be scrubbed. Dark forest background #06120F, transparent film enabled, soft bloom, shallow depth of field on the fusing point. Camera: static, slightly low, 50 mm, tracking the fusing point with a slow 10% push.',
+  note:'This is the engineered peak, so it gets the largest share of the render budget and the longest scroll span. It replaces the coded braid, which stays as the fallback.'},
+ {id:'A8',act:'Now',title:'Closing loop',tool:'Video generation or Blender particles',fmt:'8 s seamless loop, 1080p, very low contrast',
+  prompt:STYLE+'\n\nAbstract. A dark field of several hundred small points of warm light, loosely arranged like people in a large hall seen from above. Fine emerald lines connect and release between nearby points in slow waves. Calm, no flashing. First and last frame identical for a seamless loop.',
+  note:'Background for the Talent Suite band only. Must not compete with the capability list.'},
+ {id:'VO',act:'All',title:'Narration, about 5:00',tool:'ElevenLabs speech',fmt:'One take per act, WAV, so each can be re-timed',
+  prompt:'Voice direction: warm, unhurried documentary narrator, mid to low register, British or neutral international English, about 135 words per minute, a short breath before each question. Stability medium-high, no dramatic whisper. Generate one file per act from the narration script below.',
+  note:'Start on user click only. Never autoplay with the scroll.'},
+ {id:'MX',act:'All',title:'Music bed',tool:'Music generation',fmt:'5:00 instrumental, stems if available',
+  prompt:'Instrumental, no vocals, 5 minutes, 72 bpm. Opens with a single frame drum and low breathy flute over a drone. A second layer joins every 35 seconds (plucked strings, hand percussion, low piano, strings, soft synth pulse) so the texture moves from ancient to modern. At 3:40 all layers lock into one simple rising theme, holds, then resolves to a single sustained note at 4:50. Understated, no cinematic trailer hits.',
+  note:'Duck 6 dB under narration. The lock at 3:40 lines up with the braid.'}
+];
+
+const SOURCES=[
+ ['Korn Ferry capabilities (seven capability names, Talent Suite)','https://www.kornferry.com/capabilities'],
+ ['Korn Ferry, Our Story (1969 founding, Hay Group 2015, acquisitions)','https://kornferry.com/about-us/our-story'],
+ ['Korn Ferry press release: Talent Suite launch, January 2026','https://www.kornferry.com/about-us/press/korn-ferry-launches-talent-suite-embedding-people-science-into-every-talent-decision'],
+ ['Umbrex firm profile (Lominger 2006, PDI Ninth House 2013, Hay Group 2015)','https://umbrex.com/resources/profiles-of-the-top-consulting-firms/overview-profile-and-history-of-korn-ferry/'],
+ ['Workforce: Edward "Ned" Hay and the 1943 founding of Hay Group','https://www.workforce.com/news/how-edward-ned-hay-a-former-personnel-journal-editor-helped-redefine-hr'],
+ ['German Archaeological Institute, Tepe Telegrams (Göbekli Tepe dating and builders)','https://www.dainst.blog/the-tepe-telegrams/?p=6225'],
+ ['ScienceAlert: the Uruk beer ration tablet','https://www.sciencealert.com/this-5-000-year-old-clay-tablet-shows-ancient-mesopotamians-were-paid-for-work-in-beer'],
+ ['Museo Egizio, Turin Strike Papyrus','https://collezionepapiri.museoegizio.it/en-GB/section/Papyrus-Collection/History-and-content/Highlights-Turin-Strike-Papyrus/'],
+ ['Springer: the imperial examination, 605 to 1905','https://link.springer.com/doi/10.1186/s40468-022-00201-5'],
+ ['McClelland 1973, Testing for Competence Rather Than for "Intelligence"','https://www.Gwern.net/doc/iq/1973-mcclelland.pdf'],
+ ['Wikipedia: The Landmarks of Tomorrow (Drucker, 1959)','https://en.wikipedia.org/wiki/The_Landmarks_of_Tomorrow']
+];
+
+/* ============ ENGINE ============ */
+const $=(s,r=document)=>r.querySelector(s), $$=(s,r=document)=>[...r.querySelectorAll(s)];
+const clamp=(v,a=0,b=1)=>Math.min(b,Math.max(a,v)), lerp=(a,b,t)=>a+(b-a)*t;
+const sstep=(a,b,x)=>{const t=clamp((x-a)/(b-a));return t*t*(3-2*t)};
+const reduced=matchMedia('(prefers-reduced-motion:reduce)').matches;
+let smooth=!reduced, vh=innerHeight, playing=false, playT0=0;
+const TOTAL=ACTS.reduce((s,a)=>s+a.dur,0);
+const acts=ACTS.map(d=>{const el=$(`[data-act="${d.id}"]`);return{d,el,pin:el.classList.contains('pin'),p:0,last:-1}});
+let t0=0;acts.forEach(a=>{a.t0=t0;t0+=a.d.dur});
+function rnd(seed){let s=seed;return()=>(s=(s*16807)%2147483647)/2147483647}
+
+function measure(){vh=innerHeight;const grow=acts.find(a=>a.d.id==='grow');grow.pin=innerWidth>=900;acts.forEach(a=>{const r=a.el.getBoundingClientRect();a.top=r.top+scrollY;a.h=r.height});maxY=document.documentElement.scrollHeight-vh;layoutPan()}
+let maxY=0;
+function target(a){return a.pin?clamp((scrollY-a.top)/Math.max(1,a.h-vh)):clamp((scrollY+vh-a.top)/(a.h+vh))}
+
+/* ---- per-act renderers: receive smoothed progress 0..1 ---- */
+const R={};
+
+// Act 2: tally marks
+(function(){const m=$('#marks');for(let i=0;i<32;i++)m.appendChild(document.createElement('i'));const I=$$('i',m);
+ R.reward=p=>{const n=Math.round(sstep(.08,.62,p)*I.length);I.forEach((e,i)=>e.classList.toggle('on',i<n))}})();
+
+function layoutPan(){}
+
+// Act 5: grid draws, role lands on a coordinate
+(function(){const NS='http://www.w3.org/2000/svg',g=$('#grid');const L=[];
+ for(let i=1;i<=6;i++){[['M'+(120+i*100)+' 440 V70'],['M120 '+(440-i*61.6)+' H720']].forEach(([d],k)=>{if(k===0&&i>6)return;const e=document.createElementNS(NS,'path');e.setAttribute('d',d);e.setAttribute('class','gl');e.setAttribute('pathLength',1);e.style.strokeDasharray=1;g.appendChild(e);L.push(e)})}
+ const ax=[$('#axX'),$('#axY')];ax.forEach(e=>e.style.strokeDasharray=1);
+ const dot=$('#jobdot'),ring=$('#jobring'),txt=$('#jobtxt'),ps=$('#lblPS');
+ R.measure=p=>{ax.forEach(e=>e.style.strokeDashoffset=1-sstep(0,.2,p));L.forEach((e,i)=>e.style.strokeDashoffset=1-sstep(.12+i*.03,.38+i*.03,p));
+  const k=sstep(.5,.85,p),x=lerp(160,520,k),y=lerp(410,193,k);[dot,ring].forEach(e=>{e.setAttribute('cx',x);e.setAttribute('cy',y);e.style.opacity=sstep(.45,.52,p)});
+  ring.setAttribute('r',18+Math.sin(p*40)*3);txt.setAttribute('x',x+26);txt.setAttribute('y',y+5);txt.style.opacity=sstep(.82,.9,p);ps.style.opacity=sstep(.3,.45,p)}})();
+
+/* ---- frame loop ---- */
+const TH=$$('.th'),LIT=[['organise',.6],['reward',.6],['select',.5],['grow',.85],['search',.5]];
+function frame(now){
+ if(playing){const t=Math.max(0,(now-playT0)/1000);if(t>=TOTAL){stopPlay()}else scrollTo(0,timeToY(t))}
+ acts.forEach(a=>{const tg=target(a);a.p=smooth?a.p+(tg-a.p)*.14:tg;if(Math.abs(tg-a.p)<.0004)a.p=tg;
+  if(a.p!==a.last){a.last=a.p;a.el.style.setProperty('--p',a.p.toFixed(4));R[a.d.id]&&R[a.d.id](a.p)}});
+ const el=yToTime(scrollY),cur=acts.slice().reverse().find(a=>a.t0<=el+.001)||acts[0];
+ $('#time').textContent=fmt(el)+' / '+fmt(TOTAL);$('#where').textContent=cur.d.name+(cur.d.peak?' (peak)':'');
+ $('#loom').style.setProperty('--prog',(el/TOTAL).toFixed(4));
+ LIT.forEach(([id,at],i)=>{const a=acts.find(x=>x.d.id===id);TH[i].classList.toggle('lit',el>=a.t0+a.d.dur*at)});
+ requestAnimationFrame(frame)}
+const fmt=s=>Math.floor(s/60)+':'+String(Math.floor(s%60)).padStart(2,'0');
+function span(a,i){const y0=i?a.top:0,nx=acts[i+1];return[y0,Math.min(nx?nx.top:maxY,maxY)]}
+function yToTime(y){for(let i=acts.length-1;i>=0;i--){const a=acts[i],[y0,y1]=span(a,i);if(y>=y0||i===0)return a.t0+a.d.dur*clamp((y-y0)/Math.max(1,y1-y0))}return 0}
+function timeToY(t){t=clamp(t,0,TOTAL);const i=clamp(acts.length-1-acts.slice().reverse().findIndex(a=>a.t0<=t),0,acts.length-1),a=acts[i],[y0,y1]=span(a,i);return lerp(y0,y1,clamp((t-a.t0)/a.d.dur))}
+
+/* ---- presenter autoplay ---- */
+function startPlay(){mediaVideos.forEach(v=>{const l=videoLoaders.get(v);l&&l()});playing=true;playT0=performance.now()-(yToTime(scrollY)>=TOTAL-1?0:yToTime(scrollY))*1000;$('#play').textContent='Stop';$('#play').setAttribute('aria-pressed','true')}
+function stopPlay(){playing=false;$('#play').textContent='Play 5:00';$('#play').setAttribute('aria-pressed','false')}
+$('#play').addEventListener('click',()=>playing?stopPlay():startPlay());
+const fromLoom=e=>e.target&&e.target.closest&&e.target.closest('#loom');
+['wheel','touchstart'].forEach(ev=>addEventListener(ev,e=>{if(playing&&!fromLoom(e))stopPlay()},{passive:true}));
+addEventListener('keydown',e=>{if(playing&&!fromLoom(e)&&['ArrowDown','ArrowUp','PageDown','PageUp','Escape',' '].includes(e.key))stopPlay()});
+
+
+/* ---- A4: reveal the three stages one after another ---- */
+(function(){const panels=$$('#grow .panel'),growAct=acts.find(a=>a.d.id==='grow'),AT=[.06,.27,.48];
+ if(reduced){panels.forEach(e=>e.classList.add('in'));return}
+ R.grow=p=>{if(growAct.pin)panels.forEach((e,i)=>e.classList.toggle('in',p>=AT[i]))};
+ const pio=new IntersectionObserver(es=>es.forEach(e=>{if(!growAct.pin&&e.isIntersecting)e.target.classList.add('in')}),{threshold:.35});
+ panels.forEach(e=>pio.observe(e));
+})();
+
+/* ---- reveal acts ---- */
+const io=new IntersectionObserver(es=>es.forEach(e=>e.isIntersecting&&e.target.classList.add('on')),{threshold:.25});
+$$('.act:not(.pin)').forEach(el=>io.observe(el));
+
+/* ---- artwork parallax, sharing the A1 test's depth and scale progression ---- */
+const artworkActs=[{id:'open',host:$('#hero .artwork')}];
+let mx=0,my=0,tx=0,ty=0;
+addEventListener('pointermove',e=>{if(e.pointerType==='touch')return;tx=e.clientX/innerWidth-.5;ty=e.clientY/innerHeight-.5},{passive:true});
+addEventListener('pointerout',e=>{if(!e.relatedTarget){tx=0;ty=0}},{passive:true});
+const heroArt=artworkActs[0].host,heroImages=$$('img',heroArt);
+Promise.all(heroImages.map(img=>new Promise((resolve,reject)=>{
+ if(img.complete){img.naturalWidth?resolve():reject();return}
+ img.addEventListener('load',resolve,{once:true});img.addEventListener('error',reject,{once:true});
+}))).then(()=>heroArt.classList.add('ready')).catch(()=>{});
+(function drawArtwork(){
+ mx+=(tx-mx)*.06;my+=(ty-my)*.06;
+ artworkActs.forEach(({id,host})=>{
+  const act=acts.find(a=>a.d.id===id),p=act.p||0,shift=Math.min(host.clientWidth,host.clientHeight)*.06;
+  $$('.artwork-layer',host).forEach(layer=>{
+   const d=+layer.dataset.d,z=1+(+layer.dataset.z-1)*p;
+   const x=reduced?0:mx*shift*d*.35,y=reduced?0:(1-2*p)*shift*d+my*shift*d*.25;
+   layer.style.transform=`translate3d(${x.toFixed(1)}px,${y.toFixed(1)}px,0) scale(${reduced?1:z.toFixed(4)})`;
+  });
+ });
+ requestAnimationFrame(drawArtwork);
+})();
+
+/* ---- responsive media: existing video files, no transcoding ---- */
+const mobileMedia=matchMedia('(width < 900px)');
+const rewardVideo=document.createElement('video');
+rewardVideo.dataset.media='A2';rewardVideo.poster='assets/A2_still_v1.png';rewardVideo.preload='auto';
+rewardVideo.setAttribute('aria-label','A clay ration tablet');$('#reward .visual').prepend(rewardVideo);
+const mediaVideos=$$('video[data-media]');
+const videoLoaders=new Map();
+mediaVideos.forEach(v=>{
+ v.muted=true;v.defaultMuted=true;v.playsInline=true;
+ v.setAttribute('muted','');v.setAttribute('playsinline','');
+ const selectSource=async()=>{
+  const src=SRC[v.dataset.media][mobileMedia.matches?1:0];
+  if(v.dataset.source===src)return;
+  v.dataset.source=src;
+  if(v.dataset.objectUrl){URL.revokeObjectURL(v.dataset.objectUrl);delete v.dataset.objectUrl}
+  const wasPlaying=!v.paused,oldTime=v.currentTime;
+  let playableSource=src;
+  try{
+   // Buffer the two small scrub clips unchanged so seeking also works on
+   // python3 -m http.server, which may not serve HTTP byte ranges.
+   if(['A1','A2','A7'].includes(v.dataset.media)&&/^https?:$/.test(location.protocol)){
+    const response=await fetch(src);
+    if(!response.ok)throw new Error('Cannot load '+src+': '+response.status);
+    const blob=await response.blob();
+    if(v.dataset.source!==src)return;
+    playableSource=URL.createObjectURL(blob);v.dataset.objectUrl=playableSource;
+   }
+   if(v.dataset.source!==src)return;
+   v.addEventListener('loadedmetadata',()=>{
+    if(oldTime>0&&Number.isFinite(v.duration))v.currentTime=Math.min(oldTime,v.duration);
+    if(wasPlaying&&!reduced)v.play().catch(()=>{});
+   },{once:true});
+   v.src=playableSource;
+  }catch(error){console.error(error)}
+ };
+ videoLoaders.set(v,selectSource);
+ mobileMedia.addEventListener('change',()=>{if(v.dataset.source)selectSource()});
+});
+const loadObserver=new IntersectionObserver(entries=>entries.forEach(({target:v,isIntersecting})=>{
+ if(isIntersecting){videoLoaders.get(v)();loadObserver.unobserve(v)}
+}),{rootMargin:'100% 0px'});
+mediaVideos.forEach(v=>loadObserver.observe(v));
+function scrubVideo(v){
+ let wanted=0;
+ const seek=()=>{
+  if(v.seeking||v.readyState<1||!Number.isFinite(v.duration)||!v.seekable.length||v.seekable.end(v.seekable.length-1)<=0)return;
+  const t=Math.min(wanted,v.duration);
+  if(Math.abs(v.currentTime-t)>.01)try{v.currentTime=t}catch(e){}
+ };
+ v.addEventListener('loadedmetadata',seek);v.addEventListener('seeked',seek);
+ v.addEventListener('canplay',seek);v.addEventListener('progress',seek);
+ return t=>{wanted=t;seek()};
+}
+const seekReward=scrubVideo(rewardVideo),renderReward=R.reward;
+R.reward=p=>{renderReward(p);if(Number.isFinite(rewardVideo.duration))seekReward(p*Math.max(0,rewardVideo.duration-.05))};
+rewardVideo.addEventListener('loadedmetadata',()=>R.reward(acts.find(a=>a.d.id==='reward').p));
+const organiseVideo=$('#a1-video');
+const seekOrganise=scrubVideo(organiseVideo);
+const A1_DURATION=6;
+R.organise=p=>{
+ const dur=Number.isFinite(organiseVideo.duration)?Math.min(A1_DURATION,organiseVideo.duration):A1_DURATION;
+ seekOrganise(Math.min(p*A1_DURATION,dur));
+};
+organiseVideo.addEventListener('loadedmetadata',()=>R.organise(acts.find(a=>a.d.id==='organise').p));
+const loopObserver=new IntersectionObserver(entries=>entries.forEach(({target:v,isIntersecting})=>{
+ if(isIntersecting){videoLoaders.get(v)();if(!reduced)v.play().catch(()=>{})}else v.pause();
+}),{threshold:0});
+mediaVideos.filter(v=>v.loop).forEach(v=>loopObserver.observe(v));
+
+/* ---- A3: play once when seen, then hold the last frame ---- */
+const onceVideos=mediaVideos.filter(v=>v.hasAttribute('data-once'));
+onceVideos.forEach(v=>{
+ v.loop=false;
+ v.addEventListener('ended',()=>{v.dataset.done='1';try{v.currentTime=Math.max(0,v.duration-.04)}catch(e){}});
+ if(reduced)v.addEventListener('loadedmetadata',()=>{try{v.currentTime=Math.max(0,v.duration-.04)}catch(e){};v.dataset.done='1'},{once:true});
+});
+const onceObserver=new IntersectionObserver(entries=>entries.forEach(({target:v,isIntersecting})=>{
+ if(isIntersecting){videoLoaders.get(v)();if(!reduced&&!v.dataset.done)v.play().catch(()=>{})}else if(!v.paused)v.pause();
+}),{threshold:.6});
+onceVideos.forEach(v=>onceObserver.observe(v));
+document.addEventListener('visibilitychange',()=>{
+ if(document.hidden)mediaVideos.forEach(v=>v.pause());
+ else mediaVideos.filter(v=>v.loop).forEach(v=>{
+  const r=v.getBoundingClientRect();if(!reduced&&r.bottom>0&&r.top<innerHeight)v.play().catch(()=>{});
+ });
+});
+
+/* ---- A7: approved ref/a7_end_preview.html overlay, cues and folds ---- */
+(function(){
+    const VIDEO_DURATION = 8;
+    const TEXT_END = 10.80;
+    const DURATION = TEXT_END;
+    const CUE = {
+      pulseStart: 6.00,
+      writeEnd:   6.50,
+      holdEnd:    6.80,
+      swapEnd:    8.20,
+      settleEnd:  9.50
+    };
+    const SPACE_MAX = 0.50;
+    const SPACE_MIN_AT_SWAP = 0.26;
+    const COL_WHITE = "#F5F8F7";
+    const COL_EMERALD = "#4FE3B5";
+    const COL_FOREST = "#00634F";
+
+
+ const reduceMotion=reduced;
+ const body=$('#converge'),video=$('#a7-video'),word=$('#a7-word'),space=$('#a7-wordSpace');
+ const pulse=$('#a7-pulse'),glint=$('#a7-glint'),glintBar=$('.bar',glint),readout=null;
+ const letters=$$('.letter',word).sort((a,b)=>Number(a.dataset.i)-Number(b.dataset.i));
+ const glyphs=$$('.glyph',word);
+ let lastApplied=-1,lastReadable='';
+    function clamp(x, a, b) { return Math.max(a, Math.min(b, x)); }
+    function lerp(a, b, t) { return a + (b - a) * t; }
+    function easeOutCubic(t) { return 1 - Math.pow(1 - t, 3); }
+    function easeInOutCubic(t) {
+      return t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
+    }
+    function easeOutQuad(t) { return 1 - (1 - t) * (1 - t); }
+
+    function hexToRgb(h) {
+      h = h.replace("#", "");
+      return [parseInt(h.slice(0, 2), 16), parseInt(h.slice(2, 4), 16), parseInt(h.slice(4, 6), 16)];
+    }
+    function lerpColor(a, b, p) {
+      const A = hexToRgb(a), B = hexToRgb(b);
+      const m = A.map(function (v, i) { return Math.round(v + (B[i] - v) * p); });
+      return "rgb(" + m[0] + ", " + m[1] + ", " + m[2] + ")";
+    }
+    function glowAmount(t) {
+      if (t < CUE.holdEnd) return 0;
+      if (t < CUE.swapEnd) {
+        const p = (t - CUE.holdEnd) / (CUE.swapEnd - CUE.holdEnd);
+        return easeOutCubic(clamp(p / 0.28, 0, 1));
+      }
+      if (t < CUE.settleEnd) {
+        const p = (t - CUE.swapEnd) / (CUE.settleEnd - CUE.swapEnd);
+        return 1 - easeInOutCubic(p);
+      }
+      return 0;
+    }
+    function fillColor(t) {
+      if (t < CUE.holdEnd) return COL_WHITE;
+      if (t < CUE.swapEnd) {
+        const p = easeInOutCubic((t - CUE.holdEnd) / (CUE.swapEnd - CUE.holdEnd));
+        return lerpColor(COL_WHITE, COL_EMERALD, p);
+      }
+      if (t < CUE.settleEnd) {
+        const p = easeInOutCubic((t - CUE.swapEnd) / (CUE.settleEnd - CUE.swapEnd));
+        return lerpColor(COL_EMERALD, COL_FOREST, p);
+      }
+      return COL_FOREST;
+    }
+    function applyLetterPaint(el, t, glow) {
+      el.style.color = fillColor(t);
+      const settle = t <= CUE.swapEnd ? 0 : clamp((t - CUE.swapEnd) / (CUE.settleEnd - CUE.swapEnd), 0, 1);
+      // Hairline emerald rim + pale edge, not a heavy outline (that reads hollow
+      // once the fill settles to official forest on the near-black stage).
+      const rimA = 0.10 + settle * 0.40 + glow * 0.12;
+      const lightA = 0.08 + settle * 0.52;
+      el.style.webkitTextStroke = (0.010 + settle * 0.008).toFixed(3) + "em rgba(79, 227, 181, " + rimA.toFixed(3) + ")";
+      el.style.textShadow = [
+        "0 0 0.6px rgba(232, 242, 238, " + lightA.toFixed(3) + ")",
+        "0 1px 0 rgba(204, 224, 220, " + (0.05 + settle * 0.24).toFixed(3) + ")",
+        "0 0 " + (6 + glow * 16) + "px rgba(79, 227, 181, " + (glow * 0.42).toFixed(3) + ")",
+        "0 0 " + (14 + glow * 28) + "px rgba(79, 227, 181, " + (glow * 0.22).toFixed(3) + ")"
+      ].join(", ");
+      el.removeAttribute("data-tone");
+    }
+    function flipAmount(t) {
+      if (t < CUE.holdEnd) return 0;
+      return easeInOutCubic(clamp((t - CUE.holdEnd) / (CUE.swapEnd - CUE.holdEnd), 0, 1));
+    }
+
+    function readableFromProgress(t) {
+      if (reduceMotion) return t >= CUE.pulseStart ? "TO BETTER" : "";
+      if (t < CUE.pulseStart) return "";
+
+      const writeP = clamp((t - CUE.pulseStart) / (CUE.writeEnd - CUE.pulseStart), 0, 1);
+      const flipped = flipAmount(t) >= 0.5;
+      const glyphs = flipped
+        ? ["T", "O", "B", "E", "T", "T", "E", "R"]
+        : ["T", "O", "G", "E", "T", "H", "E", "R"];
+
+      let lastVisible = -1;
+      for (let i = 0; i < 8; i++) {
+        const appear = (i / 8) * 0.82;
+        const letterP = clamp((writeP - appear) / 0.22, 0, 1);
+        if (letterP > 0.55) lastVisible = i;
+      }
+      if (lastVisible < 0) return "";
+      const shown = glyphs.slice(0, lastVisible + 1).join("");
+      if (flipped) {
+        // Always the two legal words once the new faces are visible —
+        // never a hole such as "TO ETER".
+        if (lastVisible >= 7) return "TO BETTER";
+        if (lastVisible >= 1) return ("TO " + glyphs.slice(2, lastVisible + 1).join("")).trim();
+        return shown;
+      }
+      return shown;
+    }
+
+    function applyState(tRaw) {
+      const t = clamp(Number(tRaw) || 0, 0, TEXT_END);
+      lastApplied = t;
+      if (readout) readout.textContent = t.toFixed(2) + "s / " + TEXT_END.toFixed(2) + "s";
+      body.dataset.textDone = t >= TEXT_END - 0.05 ? "true" : "false";
+
+      const glow = reduceMotion ? 0 : glowAmount(t);
+
+      if (reduceMotion) {
+        const on = t >= CUE.pulseStart;
+        word.style.opacity = on ? "1" : "0";
+        letters.forEach((el) => {
+          el.style.opacity = on ? "1" : "0";
+          el.style.transform = "none";
+          if (on) applyLetterPaint(el, TEXT_END, 0);
+        });
+        glyphs.forEach((el) => {
+          el.textContent = el.dataset.back;
+          el.style.transform = "scaleY(1)";
+          el.style.opacity = on ? "1" : "0";
+        });
+        space.style.width = on ? SPACE_MAX + "em" : "0px";
+        pulse.style.opacity = "0";
+        glint.style.opacity = "0";
+        lastReadable = on ? "TO BETTER" : "";
+        word.dataset.readable = lastReadable;
+        return lastReadable;
+      }
+
+      const writeP = clamp((t - CUE.pulseStart) / (CUE.writeEnd - CUE.pulseStart), 0, 1);
+      const flipP  = flipAmount(t);
+      const glintP = t < CUE.swapEnd ? 0 : clamp((t - CUE.swapEnd) / (CUE.settleEnd - CUE.swapEnd), 0, 1);
+
+      word.style.opacity = writeP > 0 ? "1" : "0";
+
+      if (t >= CUE.pulseStart && t < CUE.writeEnd + 0.28) {
+        const p = easeOutQuad(clamp(writeP, 0, 1));
+        let op = 1 - Math.pow(Math.min(p, 1), 1.4) * 0.15;
+        if (writeP >= 1) op *= 1 - clamp((t - CUE.writeEnd) / 0.22, 0, 1);
+        pulse.style.opacity = String(op);
+        pulse.style.transform = "translate3d(" + lerp(-20, 210, p) + "%, -50%, 0)";
+      } else {
+        pulse.style.opacity = "0";
+      }
+
+      letters.forEach((el, i) => {
+        const appear = (i / 8) * 0.82;
+        const letterP = easeOutCubic(clamp((writeP - appear) / 0.22, 0, 1));
+        el.style.opacity = String(letterP);
+        el.style.transform = "translateY(" + lerp(8, 0, letterP) + "px)";
+        applyLetterPaint(el, t, glow);
+      });
+
+      // scaleY fold reads as a rotateX card-flip without 3D flattening
+      // issues. Glyphs swap at the midpoint, when the letter is a line.
+      glyphs.forEach((el) => {
+        el.textContent = flipP >= 0.5 ? el.dataset.back : el.dataset.front;
+        const fold = Math.abs(Math.cos(flipP * Math.PI));
+        const hide = 1 - clamp(Math.abs(flipP - 0.5) / 0.08, 0, 1);
+        el.style.transform = "scaleY(" + Math.max(fold, 0.001) + ")";
+        el.style.opacity = String(1 - hide * 0.85);
+      });
+
+      let spaceEm = 0;
+      if (flipP >= 0.5) {
+        const s = easeOutCubic((flipP - 0.5) / 0.5);
+        spaceEm = lerp(SPACE_MIN_AT_SWAP, SPACE_MAX, s);
+      }
+      space.style.width = spaceEm + "em";
+
+      if (glintP > 0 && glintP < 1) {
+        const fade = Math.sin(glintP * Math.PI);
+        glint.style.opacity = String(0.7 * fade);
+        glintBar.style.left = lerp(-8, 100, easeInOutCubic(glintP)) + "%";
+      } else if (glintP >= 1) {
+        glint.style.opacity = "0";
+        glintBar.style.left = "100%";
+      } else {
+        glint.style.opacity = "0";
+        glintBar.style.left = "-8%";
+      }
+
+      lastReadable = readableFromProgress(t);
+      word.dataset.readable = lastReadable;
+      return lastReadable;
+    }
+
+
+ const seek=scrubVideo(video),milestones=$$('#mile > div'),chipEls=$$('#mile .chips li'),acqN=$('#acqN'),acqItems=[...milestones.filter(e=>e.classList.contains('ring')),...chipEls];
+ R.converge=p=>{
+  const t=p*TEXT_END;
+  seek(Math.min(t,VIDEO_DURATION));
+  applyState(t);
+  milestones.forEach(e=>e.classList.toggle('on',p>=+e.dataset.at));
+  chipEls.forEach(e=>e.classList.toggle('on',p>=+e.dataset.at));
+  const n=acqItems.filter(e=>p>=+e.dataset.at).length;if(acqN.textContent!==String(n))acqN.textContent=n;
+  $('#loom').classList.toggle('one',p>.85);
+ };
+ applyState(0);
+ window.__A7={duration:DURATION,videoDuration:VIDEO_DURATION,cue:CUE,applyState,
+  getTime:()=>lastApplied,getVideoTime:()=>video.currentTime,
+  getReadableText:()=>lastReadable||readableFromProgress(lastApplied),
+  getState:()=>({t:lastApplied,videoTime:video.currentTime,readable:lastReadable,
+   reduceMotion,flip:flipAmount(lastApplied),glow:glowAmount(lastApplied),
+   color:fillColor(lastApplied),spaceWidth:space.style.width})};
+})();
+
+/* ---- controls ---- */
+function press(on,off){on.setAttribute('aria-pressed','true');off.setAttribute('aria-pressed','false')}
+$('#mSmooth').onclick=()=>{smooth=true;press($('#mSmooth'),$('#mNative'))};
+$('#mNative').onclick=()=>{smooth=false;press($('#mNative'),$('#mSmooth'))};
+if(reduced)press($('#mNative'),$('#mSmooth'));
+function view(spec){document.body.classList.toggle('spec',spec);press(spec?$('#vSpec'):$('#vStage'),spec?$('#vStage'):$('#vSpec'));stopPlay();scrollTo(0,0);requestAnimationFrame(measure)}
+$('#vSpec').onclick=()=>{location.hash='motion-spec'};$('#vStage').onclick=()=>{location.hash='story'};
+addEventListener('hashchange',()=>view(location.hash==='#motion-spec'));
+$$('[data-th]').forEach(b=>b.onclick=()=>{const t=b.dataset.th;document.documentElement.setAttribute('data-theme',t);try{localStorage.setItem('kf5q.theme',t)}catch(e){}$$('[data-th]').forEach(x=>x.setAttribute('aria-pressed',x===b))});
+(function(){const t=document.documentElement.getAttribute('data-theme')||'dark';$$('[data-th]').forEach(x=>x.setAttribute('aria-pressed',x.dataset.th===t))})();
+
+/* ---- motion spec view ---- */
+const esc=s=>s.replace(/[&<>]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;'}[c]));
+function buildSpec(){let t=0;
+ const rows=ACTS.map(a=>{const r=`<tr class="${a.peak?'peak':''}"><td class="n">${fmt(t)} to ${fmt(t+a.dur)}</td><td><b>${a.name}</b>${a.peak?' <span class="badge">peak</span>':''}</td><td>${a.anchor}</td><td>${esc(a.cap)}</td><td>${a.device}</td><td>${a.stack}</td><td>${a.feel}</td></tr>`;t+=a.dur;return r}).join('');
+ const cards=ASSETS.map(a=>`<div class="card"><div class="hd"><span class="id">${a.id}</span><h3>${a.title}</h3></div><div class="meta"><b>Act:</b> ${a.act} · <b>Tool:</b> ${a.tool}<br><b>Deliver:</b> ${a.fmt}</div><pre id="p-${a.id}">${esc(a.prompt)}</pre><button class="copy-btn" data-copy="p-${a.id}">Copy prompt</button><div class="meta">${a.note}</div></div>`).join('');
+ const script=ACTS.map(a=>`[${a.name.toUpperCase()} · ${a.dur}s]\n${a.narr}`).join('\n\n');
+ const words=script.split(/\s+/).length;
+ $('#spec').innerHTML=`
+ <h2>Storyboard: ${fmt(TOTAL)} in ${ACTS.length} acts</h2>
+ <p class="hint">One idea carries the whole piece: every age of work had to answer the same five questions, and each question is a Korn Ferry capability today. Timings drive the Play button and the bottom bar.</p>
+ <div class="tblwrap"><table><thead><tr><th>Time</th><th>Act</th><th>History anchor</th><th>KF capability</th><th>Scroll device</th><th>Stack to wire</th><th>Feeling</th></tr></thead><tbody>${rows}</tbody></table></div>
+ <h2>Shared style preamble</h2>
+ <p class="hint">Paste this unchanged at the top of every image and video prompt so the nine acts look like one film. It is already included in the prompts below.</p>
+ <pre id="p-style">${esc(STYLE)}</pre><button class="copy-btn" data-copy="p-style" style="margin-top:8px">Copy preamble</button>
+ <h2>Assets to generate (${ASSETS.length})</h2>
+ <p class="hint">Each ID matches a dashed label on the interactive stage. Blender prompts are written to hand to the Blender connector. Video prompts are still plus motion, for image to video.</p>
+ <div class="grid2">${cards}</div>
+ <h2>Narration script</h2>
+ <p class="hint">About ${words} words including act labels, paced for roughly 135 words per minute with pauses.</p>
+ <pre id="p-vo" style="max-height:420px">${esc(script)}</pre><button class="copy-btn" data-copy="p-vo" style="margin-top:8px">Copy full script</button>
+ <h2>Build notes</h2>
+ <ul class="src">
+  <li><b>Runs offline as is.</b> The scroll engine in this file is plain JavaScript so the page opens by double-click. The "Stack to wire" column says which library replaces each device inside the Frontier UI Lab workspace.</li>
+  <li><b>Media:</b> <span class="mono">SRC</span> selects the existing desktop or 1280-pixel video at 900px. A1, A2 and A7 scrub with the act; A3 plays once when seen and holds its last frame; A6 and A8 loop while visible.</li>
+  <li><b>Video files:</b> use the supplied assets unchanged. No re-encoding is required.</li>
+  <li><b>Signature move:</b> the five threads in the bottom bar light as each question is first answered, then fuse into one line at the peak. Keep it if everything else changes.</li>
+  <li><b>Logo:</b> the header uses a text wordmark. Swap in the white KF logo from the Control Tower shell.</li>
+ </ul>
+ <h2>Sources and checks</h2>
+ <ul class="src">${SOURCES.map(([t,u])=>`<li><a href="${u}">${t}</a></li>`).join('')}</ul>
+ <p class="hint" style="margin-top:12px"><span class="badge a">verify before presenting</span> Three lines rest on general knowledge and were not checked against a source in this pass: Taylor's 1911 publication date, the apprentice, journeyman, master ladder as described, and the origin of the word masterpiece. The Göbekli Tepe date is quoted by sources as anywhere from 9600 to 9500 BCE.</p>`;
+ $$('[data-copy]').forEach(b=>b.onclick=()=>{const txt=$('#'+b.dataset.copy).textContent,o=b.textContent,done=m=>{b.textContent=m;setTimeout(()=>b.textContent=o,1400)};
+  try{navigator.clipboard.writeText(txt).then(()=>done('Copied'),()=>sel())}catch(e){sel()}
+  function sel(){const r=document.createRange();r.selectNodeContents($('#'+b.dataset.copy));const s=getSelection();s.removeAllRanges();s.addRange(r);done('Selected, press Ctrl+C')}})}
+buildSpec();
+
+addEventListener('resize',measure);addEventListener('load',measure);
+if(document.fonts&&document.fonts.ready)document.fonts.ready.then(measure);
+measure();if(location.hash==='#motion-spec')view(true);
+requestAnimationFrame(frame);
+</script>
+</body>
+</html>
