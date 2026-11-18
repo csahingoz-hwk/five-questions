@@ -469,6 +469,24 @@ footer .credit{display:block;margin-top:8px;font-size:10px;letter-spacing:.08em;
 .loom .play[aria-pressed="true"]{background:#e8f0ec;color:#053328;box-shadow:0 0 0 2px var(--emer)}
 @media(prefers-reduced-motion:reduce){.js #grow .panel{opacity:1;transform:none}.js #grow .panel img{filter:none}}
 
+/* ===== v2 2026-11-18: scroll-scrubbed A3/A6, phone A7 framing ===== */
+@media(min-width:900px) and (min-height:700px){
+ #select.act.pin,#search.act.pin{height:calc(var(--span,220) * 1vh)}
+ #select.pin .flow,#search.pin .flow{position:sticky;top:0;height:100vh;height:100svh;padding-top:clamp(20px,4vh,48px);padding-bottom:calc(var(--bar) + clamp(16px,3vh,36px));align-content:center}
+ #search.pin .cards3{gap:10px}#search.pin .yr{padding:14px 16px}
+}
+@media (max-width:899px),(max-height:699px){#select.act.pin,#search.act.pin{height:auto}}
+.scrub-bar{position:absolute;left:0;bottom:0;height:3px;width:calc(var(--sp,0) * 100%);background:var(--emer);z-index:3;pointer-events:none}
+#search .yr{transition:opacity .35s var(--ease),transform .35s var(--ease),border-color .35s,box-shadow .35s,background .35s}
+#search.on .yr[data-a].future{opacity:.42}
+#search.on .yr[data-a].now{border-color:var(--t5);box-shadow:0 0 0 1px var(--t5),0 10px 30px rgba(119,188,31,.18);transform:translateX(-6px)}
+#search .yr.now b{color:var(--t5)}
+@media(max-width:899px) and (orientation:portrait){
+ #a7-stage{width:100%;height:min(44svh,112vw);aspect-ratio:auto;top:calc((100% - var(--bar))/2 - 3svh)}
+ #a7-video{position:absolute;left:0;top:0;height:100%;width:auto;aspect-ratio:16/9;max-width:none;object-fit:cover;will-change:transform}
+ .acq{--chipA:calc(1 - min(1,max(0,(var(--p,0) - .548) * 50)))}.chips{opacity:var(--chipA)}
+}
+
 </style>
 </head>
 <body>
@@ -539,9 +557,9 @@ footer .credit{display:block;margin-top:8px;font-size:10px;letter-spacing:.08em;
 </section>
 
 <!-- ACT 3 · SELECT · reveal -->
-<section class="act" id="select" data-act="select">
+<section class="act pin" id="select" data-act="select" style="--span:200">
  <div class="flow">
-  <figure class="exam-frame"><div class="visual exam-visual"><video data-media="A3" data-once muted playsinline preload="auto" aria-label="An imperial examination compound in later dynasties"></video></div>
+  <figure class="exam-frame"><div class="visual exam-visual"><video data-media="A3" data-scrub muted playsinline preload="auto" disablepictureinpicture aria-label="An imperial examination compound in later dynasties"></video><i class="scrub-bar" aria-hidden="true"></i></div>
    <figcaption><span class="kick">Reconstruction</span><span>An examination compound: long rows of single cells, one candidate in each.</span></figcaption></figure>
   <div>
    <div class="kick" data-a>Imperial China · later dynasties</div>
@@ -588,7 +606,7 @@ footer .credit{display:block;margin-top:8px;font-size:10px;letter-spacing:.08em;
 </section>
 
 <!-- ACT 6 · SEARCH · reveal -->
-<section class="act" id="search" data-act="search">
+<section class="act pin" id="search" data-act="search" style="--span:240">
  <div class="flow">
   <div>
    <div class="kick" data-a>1959 to 1973 · the knowledge economy</div>
@@ -596,7 +614,7 @@ footer .credit{display:block;margin-top:8px;font-size:10px;letter-spacing:.08em;
    <div class="q" data-a style="--d:2;--tc:var(--t5)"><small>Question five</small><b>Where do we find them?</b><span>Today: Talent Acquisition. The right people at every level.</span></div>
   </div>
   <div class="cards3">
-   <div class="visual office-visual" data-a><video data-media="A6" muted playsinline loop preload="metadata" aria-label="A quiet office at the beginning of the knowledge economy"></video></div>
+   <div class="visual office-visual" data-a><video data-media="A6" data-scrub muted playsinline preload="auto" disablepictureinpicture aria-label="A quiet office at the beginning of the knowledge economy"></video><i class="scrub-bar" aria-hidden="true"></i></div>
    <div class="yr" data-a style="--d:1"><b>1959</b><div><h3>The knowledge worker gets a name</h3><p>Peter Drucker describes a workforce paid to think.</p></div></div>
    <div class="yr kf" data-a style="--d:2"><b>1969</b><div><h3>One phone, one assistant, a Rolodex</h3><p>Lester Korn and Richard Ferry open an office in Los Angeles. The door already says International.</p></div></div>
    <div class="yr" data-a style="--d:3"><b>1973</b><div><h3>Competence over IQ</h3><p>Harvard's David McClelland argues for testing what predicts success in the job.</p></div></div>
@@ -780,7 +798,7 @@ const acts=ACTS.map(d=>{const el=$(`[data-act="${d.id}"]`);return{d,el,pin:el.cl
 let t0=0;acts.forEach(a=>{a.t0=t0;t0+=a.d.dur});
 function rnd(seed){let s=seed;return()=>(s=(s*16807)%2147483647)/2147483647}
 
-function measure(){vh=innerHeight;const grow=acts.find(a=>a.d.id==='grow');grow.pin=innerWidth>=900;acts.forEach(a=>{const r=a.el.getBoundingClientRect();a.top=r.top+scrollY;a.h=r.height});maxY=document.documentElement.scrollHeight-vh;layoutPan()}
+function measure(){vh=innerHeight;const grow=acts.find(a=>a.d.id==='grow');grow.pin=innerWidth>=900;const bigPin=matchMedia('(min-width:900px) and (min-height:700px)').matches;acts.forEach(a=>{if(a.d.id==='select'||a.d.id==='search')a.pin=bigPin});acts.forEach(a=>{const r=a.el.getBoundingClientRect();a.top=r.top+scrollY;a.h=r.height});maxY=document.documentElement.scrollHeight-vh;layoutPan()}
 let maxY=0;
 function target(a){return a.pin?clamp((scrollY-a.top)/Math.max(1,a.h-vh)):clamp((scrollY+vh-a.top)/(a.h+vh))}
 
@@ -838,6 +856,8 @@ addEventListener('keydown',e=>{if(playing&&!fromLoom(e)&&['ArrowDown','ArrowUp',
 /* ---- reveal acts ---- */
 const io=new IntersectionObserver(es=>es.forEach(e=>e.isIntersecting&&e.target.classList.add('on')),{threshold:.25});
 $$('.act:not(.pin)').forEach(el=>io.observe(el));
+const io2=new IntersectionObserver(es=>es.forEach(e=>e.isIntersecting&&e.target.classList.add('on')),{threshold:0,rootMargin:'0px 0px -35% 0px'});
+['#select','#search'].forEach(q=>io2.observe($(q)));
 
 /* ---- artwork parallax, sharing the A1 test's depth and scale progression ---- */
 const artworkActs=[{id:'open',host:$('#hero .artwork')}];
@@ -882,7 +902,7 @@ mediaVideos.forEach(v=>{
   try{
    // Buffer the two small scrub clips unchanged so seeking also works on
    // python3 -m http.server, which may not serve HTTP byte ranges.
-   if(['A1','A2','A7'].includes(v.dataset.media)&&/^https?:$/.test(location.protocol)){
+   if(['A1','A2','A3','A6','A7'].includes(v.dataset.media)&&/^https?:$/.test(location.protocol)){
     const response=await fetch(src);
     if(!response.ok)throw new Error('Cannot load '+src+': '+response.status);
     const blob=await response.blob();
@@ -942,6 +962,28 @@ const onceObserver=new IntersectionObserver(entries=>entries.forEach(({target:v,
  if(isIntersecting){videoLoaders.get(v)();if(!reduced&&!v.dataset.done)v.play().catch(()=>{})}else if(!v.paused)v.pause();
 }),{threshold:.6});
 onceVideos.forEach(v=>onceObserver.observe(v));
+
+/* ---- v2: A3 and A6 scrub with scroll (forward and back), smoothed in rAF ---- */
+(function(){
+ const items=[['select','A3'],['search','A6']].map(([id,m])=>{const act=acts.find(a=>a.d.id===id),v=$(`video[data-media="${m}"]`);
+  return {act,v,bar:v.parentElement.querySelector('.scrub-bar'),seek:scrubVideo(v),cur:0,cards:id==='search'?$$('#search .yr'):[]}});
+ function progress(it){
+  if(it.act.pin){const a=it.act;return clamp((scrollY-a.top)/Math.max(1,a.h-vh)*1.12-.04)}
+  const r=it.v.getBoundingClientRect();return clamp((vh*.92-r.top)/Math.max(1,vh*.92-vh*.3+r.height))}
+ const CARD_AT=[.08,.40,.72];
+ function paint(it,p){
+  if(Number.isFinite(it.v.duration))it.seek(p*Math.max(0,it.v.duration-.05));
+  it.bar&&it.bar.style.setProperty('--sp',p.toFixed(4));
+  if(it.cards.length){let k=-1;CARD_AT.forEach((t,i)=>{if(p>=t)k=i});
+   it.cards.forEach((c,i)=>{c.classList.toggle('now',i===k);c.classList.toggle('future',i>k)})}}
+ items.forEach(it=>it.v.addEventListener('loadedmetadata',()=>paint(it,reduced?1:it.cur)));
+ if(reduced){items.forEach(it=>{it.cur=1;paint(it,1)});return}
+ (function tick(){
+  items.forEach(it=>{const r=it.v.getBoundingClientRect();if(r.bottom<-vh||r.top>vh*2)return;
+   const tg=progress(it);it.cur+=(tg-it.cur)*(smooth?.18:1);if(Math.abs(tg-it.cur)<.0005)it.cur=tg;
+   if(it.cur!==it.last){it.last=it.cur;paint(it,it.cur)}});
+  requestAnimationFrame(tick)})();
+})();
 document.addEventListener('visibilitychange',()=>{
  if(document.hidden)mediaVideos.forEach(v=>v.pause());
  else mediaVideos.filter(v=>v.loop).forEach(v=>{
@@ -1152,11 +1194,17 @@ document.addEventListener('visibilitychange',()=>{
     }
 
 
+ const phoneA7=matchMedia('(max-width:899px) and (orientation:portrait)');phoneA7.addEventListener('change',()=>R.converge(acts.find(a=>a.d.id==='converge').p));
  const seek=scrubVideo(video),milestones=$$('#mile > div'),chipEls=$$('#mile .chips li'),acqN=$('#acqN'),acqItems=[...milestones.filter(e=>e.classList.contains('ring')),...chipEls];
  R.converge=p=>{
   const t=p*TEXT_END;
   seek(Math.min(t,VIDEO_DURATION));
   applyState(t);
+  if(phoneA7.matches){const st=$('#a7-stage'),W=st.clientWidth,VW=st.clientHeight*16/9,
+    K=[[0,.21],[.176,.21],[.284,.40],[.392,.58],[.521,.78],[1,.78]];
+   let f=.21;for(let i=1;i<K.length;i++){if(p<=K[i][0]){const [a0,f0]=K[i-1],[a1,f1]=K[i];f=lerp(f0,f1,sstep(a0,a1,p));break}}
+   const x=clamp(W/2-f*VW,Math.min(0,W-VW),0);video.style.transform='translate3d('+x.toFixed(1)+'px,0,0)'}
+  else if(video.style.transform)video.style.transform='';
   milestones.forEach(e=>e.classList.toggle('on',p>=+e.dataset.at));
   chipEls.forEach(e=>e.classList.toggle('on',p>=+e.dataset.at));
   const n=acqItems.filter(e=>p>=+e.dataset.at).length;if(acqN.textContent!==String(n))acqN.textContent=n;
@@ -1205,7 +1253,7 @@ function buildSpec(){let t=0;
  <h2>Build notes</h2>
  <ul class="src">
   <li><b>Runs offline as is.</b> The scroll engine in this file is plain JavaScript so the page opens by double-click. The "Stack to wire" column says which library replaces each device inside the Frontier UI Lab workspace.</li>
-  <li><b>Media:</b> <span class="mono">SRC</span> selects the existing desktop or 1280-pixel video at 900px. A1, A2 and A7 scrub with the act; A3 plays once when seen and holds its last frame; A6 and A8 loop while visible.</li>
+  <li><b>Media:</b> <span class="mono">SRC</span> selects the existing desktop or 1280-pixel video at 900px. A1, A2 and A7 scrub with the act; A3 and A6 also scrub with scroll (A6 lights the 1959, 1969 and 1973 cards in step); A8 loops while visible.</li>
   <li><b>Video files:</b> use the supplied assets unchanged. No re-encoding is required.</li>
   <li><b>Signature move:</b> the five threads in the bottom bar light as each question is first answered, then fuse into one line at the peak. Keep it if everything else changes.</li>
   <li><b>Logo:</b> the header uses a text wordmark. Swap in the white KF logo from the Control Tower shell.</li>
